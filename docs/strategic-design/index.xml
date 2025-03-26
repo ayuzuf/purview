@@ -1,0 +1,879 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Microsoft Purview DLP and Sensitivity Labels Implementation Framework – Strategic Design</title><link>https://example.org/docs/strategic-design/</link><description>Recent content in Strategic Design on Microsoft Purview DLP and Sensitivity Labels Implementation Framework</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://example.org/docs/strategic-design/index.xml" rel="self" type="application/rss+xml"/><item><title>High-Level Architecture</title><link>https://example.org/docs/strategic-design/high-level-architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://example.org/docs/strategic-design/high-level-architecture/</guid><description>
+&lt;h1>Microsoft Purview DLP and Sensitivity Labels High-Level Architectural Design&lt;/h1>&lt;h2>1. Executive Summary&lt;span class="hx-absolute -hx-mt-20" id="1-executive-summary">&lt;/span>
+&lt;a href="#1-executive-summary" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>This high-level architectural design document outlines the framework for implementing Microsoft Purview Data Loss Prevention (DLP) and Sensitivity Labels within a FTSE 100 financial services organization. The design addresses the specific needs of financial institutions while ensuring compliance with key regulatory requirements including GDPR, FCA regulations, and PCI-DSS.&lt;/p>
+&lt;h2>2. Design Principles&lt;span class="hx-absolute -hx-mt-20" id="2-design-principles">&lt;/span>
+&lt;a href="#2-design-principles" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>The architectural design is guided by the following core principles:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Defense in Depth&lt;/strong>: Implementing multiple layers of protection to safeguard sensitive information&lt;/li>
+&lt;li>&lt;strong>Regulatory Compliance&lt;/strong>: Ensuring alignment with GDPR, FCA, PCI-DSS, and other financial services regulations&lt;/li>
+&lt;li>&lt;strong>Business Enablement&lt;/strong>: Protecting data while enabling legitimate business processes&lt;/li>
+&lt;li>&lt;strong>User Experience&lt;/strong>: Minimizing disruption to end-user workflows&lt;/li>
+&lt;li>&lt;strong>Scalability&lt;/strong>: Supporting the enterprise-scale requirements of a FTSE 100 organization&lt;/li>
+&lt;li>&lt;strong>Adaptability&lt;/strong>: Allowing for future expansion and regulatory changes&lt;/li>
+&lt;/ol>
+&lt;h2>3. High-Level Architecture Overview&lt;span class="hx-absolute -hx-mt-20" id="3-high-level-architecture-overview">&lt;/span>
+&lt;a href="#3-high-level-architecture-overview" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>The Microsoft Purview implementation architecture consists of five key components:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Information Discovery &amp;amp; Classification&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Protection &amp;amp; Governance&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Monitoring &amp;amp; Enforcement&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Administration &amp;amp; Management&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Integration &amp;amp; Extensibility&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;h2>4. Component Details&lt;span class="hx-absolute -hx-mt-20" id="4-component-details">&lt;/span>
+&lt;a href="#4-component-details" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>4.1 Information Discovery &amp;amp; Classification&lt;span class="hx-absolute -hx-mt-20" id="41-information-discovery--classification">&lt;/span>
+&lt;a href="#41-information-discovery--classification" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>4.1.1 Data Discovery&lt;span class="hx-absolute -hx-mt-20" id="411-data-discovery">&lt;/span>
+&lt;a href="#411-data-discovery" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>Content Scanning&lt;/strong>: Automated discovery of sensitive data across Microsoft 365 services&lt;/li>
+&lt;li>&lt;strong>On-premises Scanner&lt;/strong>: Deployment of Microsoft Purview Information Protection scanner for on-premises repositories&lt;/li>
+&lt;li>&lt;strong>Cloud App Security Integration&lt;/strong>: Discovery of sensitive data in third-party cloud services&lt;/li>
+&lt;li>&lt;strong>Data Map Integration&lt;/strong>: Connection to Microsoft Purview Data Map for comprehensive data estate visibility&lt;/li>
+&lt;/ul>
+&lt;h4>4.1.2 Classification Framework&lt;span class="hx-absolute -hx-mt-20" id="412-classification-framework">&lt;/span>
+&lt;a href="#412-classification-framework" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>Sensitive Information Types&lt;/strong>: Predefined and custom sensitive information types for financial data&lt;/li>
+&lt;li>&lt;strong>Trainable Classifiers&lt;/strong>: Machine learning-based classifiers for financial services-specific content&lt;/li>
+&lt;li>&lt;strong>Classification Taxonomy&lt;/strong>: Hierarchical classification structure aligned with organizational data types&lt;/li>
+&lt;li>&lt;strong>Regulatory Alignment&lt;/strong>: Classification mappings to GDPR, FCA, and PCI-DSS requirements&lt;/li>
+&lt;/ul>
+&lt;h3>4.2 Protection &amp;amp; Governance&lt;span class="hx-absolute -hx-mt-20" id="42-protection--governance">&lt;/span>
+&lt;a href="#42-protection--governance" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>4.2.1 Sensitivity Labels&lt;span class="hx-absolute -hx-mt-20" id="421-sensitivity-labels">&lt;/span>
+&lt;a href="#421-sensitivity-labels" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>Label Hierarchy&lt;/strong>: Multi-level label structure reflecting financial services data sensitivity&lt;/li>
+&lt;li>&lt;strong>Protection Settings&lt;/strong>: Encryption, visual markings, and access controls&lt;/li>
+&lt;li>&lt;strong>Container Labels&lt;/strong>: Protection for SharePoint sites, Teams, and Microsoft 365 Groups&lt;/li>
+&lt;li>&lt;strong>Auto-labeling&lt;/strong>: Automated application of labels based on content and context&lt;/li>
+&lt;/ul>
+&lt;h4>4.2.2 DLP Policies&lt;span class="hx-absolute -hx-mt-20" id="422-dlp-policies">&lt;/span>
+&lt;a href="#422-dlp-policies" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>Policy Framework&lt;/strong>: Comprehensive set of policies for different data types and scenarios&lt;/li>
+&lt;li>&lt;strong>Channel Coverage&lt;/strong>: Protection across Exchange, SharePoint, OneDrive, Teams, and endpoints&lt;/li>
+&lt;li>&lt;strong>Regulatory Rules&lt;/strong>: Specific rules for GDPR, FCA, and PCI-DSS compliance&lt;/li>
+&lt;li>&lt;strong>Endpoint Protection&lt;/strong>: Extension of DLP to Windows 10/11 devices&lt;/li>
+&lt;/ul>
+&lt;h3>4.3 Monitoring &amp;amp; Enforcement&lt;span class="hx-absolute -hx-mt-20" id="43-monitoring--enforcement">&lt;/span>
+&lt;a href="#43-monitoring--enforcement" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>4.3.1 Monitoring&lt;span class="hx-absolute -hx-mt-20" id="431-monitoring">&lt;/span>
+&lt;a href="#431-monitoring" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>Activity Explorer&lt;/strong>: Centralized visibility into label usage and policy matches&lt;/li>
+&lt;li>&lt;strong>Content Explorer&lt;/strong>: Discovery and investigation of labeled content&lt;/li>
+&lt;li>&lt;strong>DLP Alerts&lt;/strong>: Real-time notification of policy violations&lt;/li>
+&lt;li>&lt;strong>Audit Logging&lt;/strong>: Comprehensive logging for compliance and forensic purposes&lt;/li>
+&lt;/ul>
+&lt;h4>4.3.2 Enforcement&lt;span class="hx-absolute -hx-mt-20" id="432-enforcement">&lt;/span>
+&lt;a href="#432-enforcement" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>Policy Actions&lt;/strong>: Block, notify, restrict, encrypt based on policy conditions&lt;/li>
+&lt;li>&lt;strong>User Notifications&lt;/strong>: End-user education and guidance&lt;/li>
+&lt;li>&lt;strong>Override Controls&lt;/strong>: Justification and approval workflows for policy exceptions&lt;/li>
+&lt;li>&lt;strong>Incident Management&lt;/strong>: Workflow for handling and remediating policy violations&lt;/li>
+&lt;/ul>
+&lt;h3>4.4 Administration &amp;amp; Management&lt;span class="hx-absolute -hx-mt-20" id="44-administration--management">&lt;/span>
+&lt;a href="#44-administration--management" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>4.4.1 Administration&lt;span class="hx-absolute -hx-mt-20" id="441-administration">&lt;/span>
+&lt;a href="#441-administration" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>Role-Based Access Control&lt;/strong>: Segregated administrative roles and responsibilities&lt;/li>
+&lt;li>&lt;strong>Policy Management&lt;/strong>: Centralized management of labels and DLP policies&lt;/li>
+&lt;li>&lt;strong>Configuration Lifecycle&lt;/strong>: Development, testing, and production environments&lt;/li>
+&lt;li>&lt;strong>Change Management&lt;/strong>: Controlled process for policy updates and changes&lt;/li>
+&lt;/ul>
+&lt;h4>4.4.2 Reporting &amp;amp; Analytics&lt;span class="hx-absolute -hx-mt-20" id="442-reporting--analytics">&lt;/span>
+&lt;a href="#442-reporting--analytics" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>Compliance Dashboards&lt;/strong>: Executive and operational dashboards&lt;/li>
+&lt;li>&lt;strong>Regulatory Reporting&lt;/strong>: Automated reporting for regulatory requirements&lt;/li>
+&lt;li>&lt;strong>Risk Analytics&lt;/strong>: Identification of high-risk areas and behaviors&lt;/li>
+&lt;li>&lt;strong>Trend Analysis&lt;/strong>: Long-term analysis of data protection posture&lt;/li>
+&lt;/ul>
+&lt;h3>4.5 Integration &amp;amp; Extensibility&lt;span class="hx-absolute -hx-mt-20" id="45-integration--extensibility">&lt;/span>
+&lt;a href="#45-integration--extensibility" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>4.5.1 Microsoft 365 Integration&lt;span class="hx-absolute -hx-mt-20" id="451-microsoft-365-integration">&lt;/span>
+&lt;a href="#451-microsoft-365-integration" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>Microsoft 365 Apps&lt;/strong>: Integration with Word, Excel, PowerPoint, Outlook&lt;/li>
+&lt;li>&lt;strong>SharePoint &amp;amp; OneDrive&lt;/strong>: Site and document-level protection&lt;/li>
+&lt;li>&lt;strong>Teams &amp;amp; Exchange&lt;/strong>: Protection for communications and collaboration&lt;/li>
+&lt;li>&lt;strong>Power Platform&lt;/strong>: Integration with Power BI, Power Apps, and Power Automate&lt;/li>
+&lt;/ul>
+&lt;h4>4.5.2 Extended Ecosystem&lt;span class="hx-absolute -hx-mt-20" id="452-extended-ecosystem">&lt;/span>
+&lt;a href="#452-extended-ecosystem" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>Third-Party Applications&lt;/strong>: Integration via Microsoft Information Protection SDK&lt;/li>
+&lt;li>&lt;strong>Cloud Access Security Broker&lt;/strong>: Integration with Microsoft Defender for Cloud Apps&lt;/li>
+&lt;li>&lt;strong>On-premises Systems&lt;/strong>: Connection to legacy and on-premises applications&lt;/li>
+&lt;li>&lt;strong>Partner Solutions&lt;/strong>: Integration with financial services-specific security solutions&lt;/li>
+&lt;/ul>
+&lt;h2>5. Logical Architecture&lt;span class="hx-absolute -hx-mt-20" id="5-logical-architecture">&lt;/span>
+&lt;a href="#5-logical-architecture" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>5.1 Microsoft Purview Components&lt;span class="hx-absolute -hx-mt-20" id="51-microsoft-purview-components">&lt;/span>
+&lt;a href="#51-microsoft-purview-components" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+&lt;div>&lt;pre>&lt;code>┌─────────────────────────────────────────────────────────────────┐
+│ Microsoft Purview Platform │
+├─────────────┬─────────────┬─────────────┬─────────────┬─────────┤
+│ Information │ Sensitivity │ DLP │ Defender │ Data │
+│ Protection │ Labels │ Policies │ Cloud Apps │ Map │
+└─────────────┴─────────────┴─────────────┴─────────────┴─────────┘&lt;/code>&lt;/pre>&lt;/div>&lt;div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+&lt;button
+class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+title="Copy code"
+>
+&lt;div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h3>5.2 Data Flow Architecture&lt;span class="hx-absolute -hx-mt-20" id="52-data-flow-architecture">&lt;/span>
+&lt;a href="#52-data-flow-architecture" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+&lt;div>&lt;pre>&lt;code>┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+│ Discovery │───&amp;gt;│Classification│─&amp;gt;│ Protection │───&amp;gt;│Enforcement│
+└───────────┘ └───────────┘ └───────────┘ └───────────┘
+│ │ │ │
+│ │ │ │
+v v v v
+┌─────────────────────────────────────────────────────────────┐
+│ Monitoring &amp;amp; Analytics │
+└─────────────────────────────────────────────────────────────┘&lt;/code>&lt;/pre>&lt;/div>&lt;div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+&lt;button
+class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+title="Copy code"
+>
+&lt;div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h2>6. Implementation Considerations&lt;span class="hx-absolute -hx-mt-20" id="6-implementation-considerations">&lt;/span>
+&lt;a href="#6-implementation-considerations" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>6.1 Tenant Configuration&lt;span class="hx-absolute -hx-mt-20" id="61-tenant-configuration">&lt;/span>
+&lt;a href="#61-tenant-configuration" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Microsoft 365 Licensing&lt;/strong>: E5 or equivalent licensing for full functionality&lt;/li>
+&lt;li>&lt;strong>Tenant Settings&lt;/strong>: Global tenant settings for information protection&lt;/li>
+&lt;li>&lt;strong>Authentication&lt;/strong>: Integration with existing identity management systems&lt;/li>
+&lt;li>&lt;strong>Conditional Access&lt;/strong>: Integration with conditional access policies&lt;/li>
+&lt;/ul>
+&lt;h3>6.2 Network Architecture&lt;span class="hx-absolute -hx-mt-20" id="62-network-architecture">&lt;/span>
+&lt;a href="#62-network-architecture" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Proxy Configuration&lt;/strong>: Configuration for on-premises scanner and cloud connectivity&lt;/li>
+&lt;li>&lt;strong>Endpoint Management&lt;/strong>: Integration with existing endpoint management solutions&lt;/li>
+&lt;li>&lt;strong>Traffic Inspection&lt;/strong>: Considerations for SSL inspection and network monitoring&lt;/li>
+&lt;li>&lt;strong>Cloud Connectivity&lt;/strong>: Requirements for Microsoft 365 connectivity&lt;/li>
+&lt;/ul>
+&lt;h3>6.3 Security Considerations&lt;span class="hx-absolute -hx-mt-20" id="63-security-considerations">&lt;/span>
+&lt;a href="#63-security-considerations" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Admin Access&lt;/strong>: Privileged access management for administrative functions&lt;/li>
+&lt;li>&lt;strong>Key Management&lt;/strong>: Management of encryption keys and certificates&lt;/li>
+&lt;li>&lt;strong>Monitoring&lt;/strong>: Security monitoring of the Microsoft Purview environment&lt;/li>
+&lt;li>&lt;strong>Incident Response&lt;/strong>: Integration with security incident response processes&lt;/li>
+&lt;/ul>
+&lt;h2>7. Regulatory Alignment&lt;span class="hx-absolute -hx-mt-20" id="7-regulatory-alignment">&lt;/span>
+&lt;a href="#7-regulatory-alignment" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>7.1 GDPR Alignment&lt;span class="hx-absolute -hx-mt-20" id="71-gdpr-alignment">&lt;/span>
+&lt;a href="#71-gdpr-alignment" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Data Subject Rights&lt;/strong>: Support for identification and export of personal data&lt;/li>
+&lt;li>&lt;strong>Lawful Basis&lt;/strong>: Controls to enforce processing based on lawful basis&lt;/li>
+&lt;li>&lt;strong>Data Minimization&lt;/strong>: Policies to enforce data minimization principles&lt;/li>
+&lt;li>&lt;strong>Breach Notification&lt;/strong>: Detection and reporting of potential data breaches&lt;/li>
+&lt;/ul>
+&lt;h3>7.2 FCA Compliance&lt;span class="hx-absolute -hx-mt-20" id="72-fca-compliance">&lt;/span>
+&lt;a href="#72-fca-compliance" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Customer Data Protection&lt;/strong>: Safeguards for customer financial information&lt;/li>
+&lt;li>&lt;strong>Call Recording&lt;/strong>: Compliant recording and storage of customer interactions&lt;/li>
+&lt;li>&lt;strong>Market Abuse Prevention&lt;/strong>: Controls to prevent and detect market abuse&lt;/li>
+&lt;li>&lt;strong>Record Keeping&lt;/strong>: Retention and protection of regulatory records&lt;/li>
+&lt;/ul>
+&lt;h3>7.3 PCI-DSS Compliance&lt;span class="hx-absolute -hx-mt-20" id="73-pci-dss-compliance">&lt;/span>
+&lt;a href="#73-pci-dss-compliance" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Cardholder Data Protection&lt;/strong>: Identification and protection of payment card data&lt;/li>
+&lt;li>&lt;strong>Scope Reduction&lt;/strong>: Strategies to reduce PCI-DSS compliance scope&lt;/li>
+&lt;li>&lt;strong>Access Controls&lt;/strong>: Implementation of PCI-DSS access control requirements&lt;/li>
+&lt;li>&lt;strong>Audit Trails&lt;/strong>: Logging and monitoring for PCI-DSS compliance&lt;/li>
+&lt;/ul>
+&lt;h2>8. Integration Points&lt;span class="hx-absolute -hx-mt-20" id="8-integration-points">&lt;/span>
+&lt;a href="#8-integration-points" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>8.1 Internal Systems&lt;span class="hx-absolute -hx-mt-20" id="81-internal-systems">&lt;/span>
+&lt;a href="#81-internal-systems" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Document Management&lt;/strong>: Integration with document management systems&lt;/li>
+&lt;li>&lt;strong>Risk Management&lt;/strong>: Connection to enterprise risk management systems&lt;/li>
+&lt;li>&lt;strong>Compliance Systems&lt;/strong>: Integration with existing compliance monitoring tools&lt;/li>
+&lt;li>&lt;strong>Security Operations&lt;/strong>: Integration with security operations center&lt;/li>
+&lt;/ul>
+&lt;h3>8.2 External Systems&lt;span class="hx-absolute -hx-mt-20" id="82-external-systems">&lt;/span>
+&lt;a href="#82-external-systems" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Regulatory Reporting&lt;/strong>: Integration with regulatory reporting systems&lt;/li>
+&lt;li>&lt;strong>Third-Party Services&lt;/strong>: Protection for data shared with third parties&lt;/li>
+&lt;li>&lt;strong>Customer Portals&lt;/strong>: Protection for customer-facing applications&lt;/li>
+&lt;li>&lt;strong>Partner Connections&lt;/strong>: Secure collaboration with business partners&lt;/li>
+&lt;/ul>
+&lt;h2>9. Success Metrics&lt;span class="hx-absolute -hx-mt-20" id="9-success-metrics">&lt;/span>
+&lt;a href="#9-success-metrics" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>9.1 Implementation Metrics&lt;span class="hx-absolute -hx-mt-20" id="91-implementation-metrics">&lt;/span>
+&lt;a href="#91-implementation-metrics" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Coverage&lt;/strong>: Percentage of data repositories covered by protection&lt;/li>
+&lt;li>&lt;strong>Adoption&lt;/strong>: User adoption of labeling and protection features&lt;/li>
+&lt;li>&lt;strong>Policy Effectiveness&lt;/strong>: Reduction in policy violations over time&lt;/li>
+&lt;li>&lt;strong>Incident Reduction&lt;/strong>: Decrease in data loss incidents&lt;/li>
+&lt;/ul>
+&lt;h3>9.2 Operational Metrics&lt;span class="hx-absolute -hx-mt-20" id="92-operational-metrics">&lt;/span>
+&lt;a href="#92-operational-metrics" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>False Positives&lt;/strong>: Rate of false positive policy matches&lt;/li>
+&lt;li>&lt;strong>User Experience&lt;/strong>: Impact on user productivity and satisfaction&lt;/li>
+&lt;li>&lt;strong>Support Volume&lt;/strong>: Volume of support requests related to information protection&lt;/li>
+&lt;li>&lt;strong>Administrative Efficiency&lt;/strong>: Time spent on policy management and administration&lt;/li>
+&lt;/ul>
+&lt;h2>10. Next Steps&lt;span class="hx-absolute -hx-mt-20" id="10-next-steps">&lt;/span>
+&lt;a href="#10-next-steps" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>Detailed Technical Design&lt;/strong>: Development of low-level technical specifications&lt;/li>
+&lt;li>&lt;strong>Pilot Implementation&lt;/strong>: Controlled deployment to pilot user groups&lt;/li>
+&lt;li>&lt;strong>Policy Development&lt;/strong>: Creation of detailed DLP policies and sensitivity labels&lt;/li>
+&lt;li>&lt;strong>Training and Awareness&lt;/strong>: Development of user training and awareness materials&lt;/li>
+&lt;li>&lt;strong>Phased Rollout Plan&lt;/strong>: Detailed implementation roadmap by business unit and data type&lt;/li>
+&lt;/ol></description></item><item><title>Detailed Technical Design</title><link>https://example.org/docs/strategic-design/detailed-technical-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://example.org/docs/strategic-design/detailed-technical-design/</guid><description>
+&lt;h1>Microsoft Purview DLP and Sensitivity Labels Detailed Technical Design&lt;/h1>&lt;h2>1. Introduction&lt;span class="hx-absolute -hx-mt-20" id="1-introduction">&lt;/span>
+&lt;a href="#1-introduction" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>This document provides the detailed technical design for implementing Microsoft Purview Data Loss Prevention (DLP) and Sensitivity Labels within a FTSE 100 financial services organization. It builds upon the high-level architectural design and provides specific technical configurations, implementation details, and operational procedures.&lt;/p>
+&lt;h2>2. Technical Prerequisites&lt;span class="hx-absolute -hx-mt-20" id="2-technical-prerequisites">&lt;/span>
+&lt;a href="#2-technical-prerequisites" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>2.1 Licensing Requirements&lt;span class="hx-absolute -hx-mt-20" id="21-licensing-requirements">&lt;/span>
+&lt;a href="#21-licensing-requirements" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Component&lt;/th>
+&lt;th style="text-align: left">Required License&lt;/th>
+&lt;th style="text-align: left">Notes&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">Microsoft Purview DLP&lt;/td>
+&lt;td style="text-align: left">Microsoft 365 E5/A5, Microsoft 365 E5/A5 Compliance, Microsoft 365 E5/A5 Information Protection and Governance&lt;/td>
+&lt;td style="text-align: left">E3 licenses provide basic capabilities but lack advanced features&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Sensitivity Labels&lt;/td>
+&lt;td style="text-align: left">Microsoft 365 E5/A5, Microsoft 365 E5/A5 Compliance, Microsoft 365 E5/A5 Information Protection and Governance&lt;/td>
+&lt;td style="text-align: left">E3 licenses provide basic labeling without encryption&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Endpoint DLP&lt;/td>
+&lt;td style="text-align: left">Microsoft 365 E5/A5, Microsoft 365 E5/A5 Compliance&lt;/td>
+&lt;td style="text-align: left">Required for extending protection to Windows 10/11 devices&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">On-premises Scanner&lt;/td>
+&lt;td style="text-align: left">Microsoft 365 E5/A5, Microsoft 365 E5/A5 Compliance&lt;/td>
+&lt;td style="text-align: left">Required for scanning on-premises file repositories&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Defender for Cloud Apps&lt;/td>
+&lt;td style="text-align: left">Microsoft 365 E5/A5, Microsoft Defender for Cloud Apps&lt;/td>
+&lt;td style="text-align: left">Required for third-party cloud app protection&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3>2.2 Infrastructure Requirements&lt;span class="hx-absolute -hx-mt-20" id="22-infrastructure-requirements">&lt;/span>
+&lt;a href="#22-infrastructure-requirements" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>2.2.1 Microsoft 365 Tenant Configuration&lt;span class="hx-absolute -hx-mt-20" id="221-microsoft-365-tenant-configuration">&lt;/span>
+&lt;a href="#221-microsoft-365-tenant-configuration" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>Tenant must be configured for Microsoft 365 Multi-Geo if operating in multiple regions&lt;/li>
+&lt;li>Microsoft Entra ID P1/P2 for conditional access policies&lt;/li>
+&lt;li>Exchange Online Protection for email DLP&lt;/li>
+&lt;li>SharePoint Online and OneDrive for Business for document DLP&lt;/li>
+&lt;/ul>
+&lt;h4>2.2.2 Network Requirements&lt;span class="hx-absolute -hx-mt-20" id="222-network-requirements">&lt;/span>
+&lt;a href="#222-network-requirements" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>Outbound connectivity to Microsoft 365 services&lt;/li>
+&lt;li>Proxy server configuration for on-premises scanner&lt;/li>
+&lt;li>Minimum bandwidth requirements as per Microsoft 365 network planning guidelines&lt;/li>
+&lt;li>Firewall exceptions for Microsoft 365 endpoints&lt;/li>
+&lt;/ul>
+&lt;h4>2.2.3 Endpoint Requirements&lt;span class="hx-absolute -hx-mt-20" id="223-endpoint-requirements">&lt;/span>
+&lt;a href="#223-endpoint-requirements" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>Windows 10 1809 or later / Windows 11 for Endpoint DLP&lt;/li>
+&lt;li>Microsoft 365 Apps for Enterprise (Version 1908 or later)&lt;/li>
+&lt;li>Microsoft Defender for Endpoint integration (recommended)&lt;/li>
+&lt;/ul>
+&lt;h2>3. Sensitivity Labels Technical Design&lt;span class="hx-absolute -hx-mt-20" id="3-sensitivity-labels-technical-design">&lt;/span>
+&lt;a href="#3-sensitivity-labels-technical-design" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>3.1 Label Taxonomy&lt;span class="hx-absolute -hx-mt-20" id="31-label-taxonomy">&lt;/span>
+&lt;a href="#31-label-taxonomy" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;p>The following sensitivity label taxonomy is designed specifically for a financial services organization:&lt;/p>
+&lt;h4>3.1.1 Top-Level Labels&lt;span class="hx-absolute -hx-mt-20" id="311-top-level-labels">&lt;/span>
+&lt;a href="#311-top-level-labels" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Label Name&lt;/th>
+&lt;th style="text-align: left">Description&lt;/th>
+&lt;th style="text-align: left">Order&lt;/th>
+&lt;th style="text-align: left">Parent&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">Personal&lt;/td>
+&lt;td style="text-align: left">Non-business information&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">None&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Public&lt;/td>
+&lt;td style="text-align: left">Information approved for public disclosure&lt;/td>
+&lt;td style="text-align: left">2&lt;/td>
+&lt;td style="text-align: left">None&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">General&lt;/td>
+&lt;td style="text-align: left">General business information&lt;/td>
+&lt;td style="text-align: left">3&lt;/td>
+&lt;td style="text-align: left">None&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Confidential&lt;/td>
+&lt;td style="text-align: left">Sensitive business information&lt;/td>
+&lt;td style="text-align: left">4&lt;/td>
+&lt;td style="text-align: left">None&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Highly Confidential&lt;/td>
+&lt;td style="text-align: left">Highly sensitive regulated information&lt;/td>
+&lt;td style="text-align: left">5&lt;/td>
+&lt;td style="text-align: left">None&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4>3.1.2 Sub-Labels&lt;span class="hx-absolute -hx-mt-20" id="312-sub-labels">&lt;/span>
+&lt;a href="#312-sub-labels" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Label Name&lt;/th>
+&lt;th style="text-align: left">Description&lt;/th>
+&lt;th style="text-align: left">Order&lt;/th>
+&lt;th style="text-align: left">Parent&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">Public\External&lt;/td>
+&lt;td style="text-align: left">Information for external partners&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">Public&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Public\Marketing&lt;/td>
+&lt;td style="text-align: left">Approved marketing materials&lt;/td>
+&lt;td style="text-align: left">2&lt;/td>
+&lt;td style="text-align: left">Public&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">General\All Employees&lt;/td>
+&lt;td style="text-align: left">Information for all employees&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">General&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">General\Internal Projects&lt;/td>
+&lt;td style="text-align: left">Non-sensitive project information&lt;/td>
+&lt;td style="text-align: left">2&lt;/td>
+&lt;td style="text-align: left">General&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Confidential\Internal Only&lt;/td>
+&lt;td style="text-align: left">Sensitive internal information&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">Confidential&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Confidential\Limited Sharing&lt;/td>
+&lt;td style="text-align: left">Information for specific groups&lt;/td>
+&lt;td style="text-align: left">2&lt;/td>
+&lt;td style="text-align: left">Confidential&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Confidential\Client Data&lt;/td>
+&lt;td style="text-align: left">Non-regulated client information&lt;/td>
+&lt;td style="text-align: left">3&lt;/td>
+&lt;td style="text-align: left">Confidential&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Highly Confidential\PII&lt;/td>
+&lt;td style="text-align: left">Personal identifiable information&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">Highly Confidential&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Highly Confidential\Financial&lt;/td>
+&lt;td style="text-align: left">Financial records and data&lt;/td>
+&lt;td style="text-align: left">2&lt;/td>
+&lt;td style="text-align: left">Highly Confidential&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Highly Confidential\Payment&lt;/td>
+&lt;td style="text-align: left">Payment card and banking data&lt;/td>
+&lt;td style="text-align: left">3&lt;/td>
+&lt;td style="text-align: left">Highly Confidential&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Highly Confidential\Strategic&lt;/td>
+&lt;td style="text-align: left">Strategic business information&lt;/td>
+&lt;td style="text-align: left">4&lt;/td>
+&lt;td style="text-align: left">Highly Confidential&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3>3.2 Label Settings Configuration&lt;span class="hx-absolute -hx-mt-20" id="32-label-settings-configuration">&lt;/span>
+&lt;a href="#32-label-settings-configuration" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>3.2.1 Personal Label&lt;span class="hx-absolute -hx-mt-20" id="321-personal-label">&lt;/span>
+&lt;a href="#321-personal-label" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;LabelName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Personal&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;DisplayName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Personal&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Non-business information that does not belong to the organization&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Tooltip&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Use for personal content not related to company business&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Priority&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Settings&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ContentMarkingHeaderEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ContentMarkingFooterEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;WatermarkingEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;EncryptionEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SiteAndGroupProtectionEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingHeaderText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingFooterText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyWatermarkingText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+&lt;button
+class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+title="Copy code"
+>
+&lt;div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h4>3.2.2 Highly Confidential\Financial Label&lt;span class="hx-absolute -hx-mt-20" id="322-highly-confidentialfinancial-label">&lt;/span>
+&lt;a href="#322-highly-confidentialfinancial-label" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;LabelName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Highly Confidential\\Financial&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;DisplayName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Highly Confidential - Financial&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Financial records and regulated financial data subject to FCA requirements&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Tooltip&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Use for financial records, trading data, and regulated financial information&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Priority&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">5&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ParentLabelName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Highly Confidential&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Settings&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ContentMarkingHeaderEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ContentMarkingFooterEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;WatermarkingEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;EncryptionEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SiteAndGroupProtectionEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingHeaderText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;HIGHLY CONFIDENTIAL - FINANCIAL&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingHeaderFontSize&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">12&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingHeaderColor&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;#FF0000&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingHeaderAlignment&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Center&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingFooterText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Restricted access - Financial data - Unauthorized disclosure prohibited&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingFooterFontSize&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">10&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingFooterColor&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;#FF0000&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingFooterAlignment&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Center&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyWatermarkingText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;HIGHLY CONFIDENTIAL&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyWatermarkingFontSize&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">40&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyWatermarkingColor&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;#FF0000&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyWatermarkingLayout&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Diagonal&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;EncryptionProtectionType&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Template&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;EncryptionTemplateId&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Financial-Data-Template&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;EncryptionRightsDefinitions&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Role&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Financial-Team&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Rights&amp;#34;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;View&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Edit&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Print&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Extract&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Role&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Compliance-Team&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Rights&amp;#34;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;View&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Print&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SiteAndGroupProtectionPrivacy&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Private&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SiteAndGroupProtectionAllowAccessFromUnmanagedDevices&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SiteAndGroupProtectionAllowExternalSharing&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+&lt;button
+class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+title="Copy code"
+>
+&lt;div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h3>3.3 Label Policies&lt;span class="hx-absolute -hx-mt-20" id="33-label-policies">&lt;/span>
+&lt;a href="#33-label-policies" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>3.3.1 Global Label Policy&lt;span class="hx-absolute -hx-mt-20" id="331-global-label-policy">&lt;/span>
+&lt;a href="#331-global-label-policy" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;PolicyName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Global-Sensitivity-Label-Policy&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Global policy for all users in the organization&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Labels&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Personal&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Public&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Public\\External&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Public\\Marketing&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;General&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;General\\All Employees&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;General\\Internal Projects&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Confidential&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Confidential\\Internal Only&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Confidential\\Limited Sharing&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Confidential\\Client Data&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Highly Confidential&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Highly Confidential\\PII&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Highly Confidential\\Financial&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Highly Confidential\\Payment&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Highly Confidential\\Strategic&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Settings&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyLabelToExistingContent&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;DefaultLabelForEmail&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;General\\All Employees&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;DefaultLabelForDocuments&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;General\\All Employees&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;RequireJustificationForRemoval&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;RequireDowngradeJustification&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;DisableMandatoryInOutlook&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;HideLabelsInOutlook&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyLabelInOutlook&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OutlookDefaultLabel&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;General\\All Employees&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OutlookJustifyDowngrade&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OutlookDoNotForward&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OutlookRecommendedLabel&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;General\\All Employees&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OutlookRecommendedLabelSet&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Scope&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Users&amp;#34;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;All&amp;#34;&lt;/span>],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Groups&amp;#34;&lt;/span>: [],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Sites&amp;#34;&lt;/span>: [],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ExcludedUsers&amp;#34;&lt;/span>: [],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ExcludedGroups&amp;#34;&lt;/span>: []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+&lt;button
+class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+title="Copy code"
+>
+&lt;div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h4>3.3.2 Financial Team Label Policy&lt;span class="hx-absolute -hx-mt-20" id="332-financial-team-label-policy">&lt;/span>
+&lt;a href="#332-financial-team-label-policy" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;PolicyName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Financial-Team-Sensitivity-Label-Policy&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Specialized policy for financial teams with additional controls&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Labels&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Personal&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Public&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Public\\External&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Public\\Marketing&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;General&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;General\\All Employees&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;General\\Internal Projects&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Confidential&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Confidential\\Internal Only&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Confidential\\Limited Sharing&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Confidential\\Client Data&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Highly Confidential&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Highly Confidential\\PII&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Highly Confidential\\Financial&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Highly Confidential\\Payment&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Highly Confidential\\Strategic&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Settings&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyLabelToExistingContent&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;DefaultLabelForEmail&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Confidential\\Internal Only&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;DefaultLabelForDocuments&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Confidential\\Internal Only&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;RequireJustificationForRemoval&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;RequireDowngradeJustification&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;DisableMandatoryInOutlook&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;HideLabelsInOutlook&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyLabelInOutlook&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OutlookDefaultLabel&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Confidential\\Internal Only&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OutlookJustifyDowngrade&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OutlookDoNotForward&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OutlookRecommendedLabel&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Confidential\\Internal Only&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OutlookRecommendedLabelSet&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Scope&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Users&amp;#34;&lt;/span>: [],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Groups&amp;#34;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;Financial-Team&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Treasury-Team&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Trading-Team&amp;#34;&lt;/span>],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Sites&amp;#34;&lt;/span>: [],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ExcludedUsers&amp;#34;&lt;/span>: [],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ExcludedGroups&amp;#34;&lt;/span>: []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+&lt;button
+class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+title="Copy code"
+>
+&lt;div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h3>3.4 Auto-Labeling Policies&lt;span class="hx-absolute -hx-mt-20" id="34-auto-labeling-policies">&lt;/span>
+&lt;a href="#34-auto-labeling-policies" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>3.4.1 PII Auto-Labeling Policy&lt;span class="hx-absolute -hx-mt-20" id="341-pii-auto-labeling-policy">&lt;/span>
+&lt;a href="#341-pii-auto-labeling-policy" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;PolicyName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;PII-Auto-Labeling-Policy&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Automatically label content containing PII&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Mode&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Simulate&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingHeaderText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;HIGHLY CONFIDENTIAL - PII&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyContentMarkingFooterText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Contains personal information - Handle according to policy&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplyWatermarkingText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;CONTAINS PII&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;EncryptionEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;EncryptionRightsDefinitions&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Role&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Compliance-Team&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Rights&amp;#34;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;View&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Print&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Rules&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;UK-PII-Detection&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ContentContainsSensitiveInformation&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SensitiveInformationType&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;UK National Insurance Number&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;MinCount&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SensitiveInformationType&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;UK Drivers License Number&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;MinCount&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SensitiveInformationType&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;UK Electoral Roll Number&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;MinCount&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SensitiveInformationType&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;UK NINO&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;MinCount&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Actions&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ApplySensitivityLabel&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Highly Confidential\\PII&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+&lt;button
+class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+title="Copy code"
+>
+&lt;div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h2>4. DLP Policy Technical Design&lt;span class="hx-absolute -hx-mt-20" id="4-dlp-policy-technical-design">&lt;/span>
+&lt;a href="#4-dlp-policy-technical-design" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>4.1 DLP Policy Framework&lt;span class="hx-absolute -hx-mt-20" id="41-dlp-policy-framework">&lt;/span>
+&lt;a href="#41-dlp-policy-framework" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;p>The DLP policy framework is structured to address specific regulatory and business requirements:&lt;/p>
+&lt;h4>4.1.1 Policy Categories&lt;span class="hx-absolute -hx-mt-20" id="411-policy-categories">&lt;/span>
+&lt;a href="#411-policy-categories" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Regulatory Compliance Policies&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>GDPR Compliance&lt;/li>
+&lt;li>FCA Compliance&lt;/li>
+&lt;li>PCI-DSS Compliance&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Data Protection Policies&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>PII Protection&lt;/li>
+&lt;li>Financial Data Protection&lt;/li>
+&lt;li>Client Data Protection&lt;/li>
+&lt;li>Strategic Information Protection&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Channel-Specific Policies&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Email Protection&lt;/li>
+&lt;li>Document Protection&lt;/li>
+&lt;li>Endpoint Protection&lt;/li>
+&lt;li>Teams Protection&lt;/li>
+&lt;li>Cloud App Protection&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3>4.2 DLP Policy Configuration&lt;span class="hx-absolute -hx-mt-20" id="42-dlp-policy-configuration">&lt;/span>
+&lt;a href="#42-dlp-policy-configuration" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>4.2.1 GDPR Compliance Policy&lt;span class="hx-absolute -hx-mt-20" id="421-gdpr-compliance-policy">&lt;/span>
+&lt;a href="#421-gdpr-compliance-policy" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;PolicyName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;GDPR-Compliance-Policy&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Enforce GDPR compliance for personal data&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Mode&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Enable&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Priority&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Locations&amp;#34;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;All&amp;#34;&lt;/span>],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ExceptLocations&amp;#34;&lt;/span>: [],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Rules&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;GDPR-High-Volume-Rule&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ContentContainsSensitiveInformation&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Groups&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;GDPR-Sensitive-Types&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SensitiveTypes&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;EU Debit Card Number&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;EU Passport Number&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;EU SSN&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;UK Electoral Roll Number&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;UK NINO&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Operator&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;OR&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;MinCount&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Operator&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;AND&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;MinCount&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">10&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Actions&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;BlockAccess&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;NotifyUser&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;NotifyUserText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;This document contains a high volume of personal data protected under GDPR. Sharing has been blocked.&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;NotifyAdmin&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;NotifyAdminText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;High volume GDPR data detected and blocked from sharing.&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OverrideOption&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Override&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OverrideRequiresJustification&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;OverrideRequiresBusinessJustification&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;GDPR-Low-Volume-Rule&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ContentContainsSensitiveInformation&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Groups&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;GDPR-Sensitive-Types&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;SensitiveTypes&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;EU Debit Card Number&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;EU Passport Number&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;EU SSN&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;UK Electoral Roll Number&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;UK NINO&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Operator&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;OR&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;MinCount&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Operator&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;AND&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;MinCount&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;MaxCount&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">9&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Actions&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;NotifyUser&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;NotifyUserText&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;This document contains personal data protected under GDPR. Please ensure appropriate protection.&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;GenerateIncidentReport&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;EncryptContent&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+&lt;button
+class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+title="Copy code"
+>
+&lt;div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h2>5. Implementation Procedures&lt;span class="hx-absolute -hx-mt-20" id="5-implementation-procedures">&lt;/span>
+&lt;a href="#5-implementation-procedures" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>5.1 Sensitivity Labels Implementation&lt;span class="hx-absolute -hx-mt-20" id="51-sensitivity-labels-implementation">&lt;/span>
+&lt;a href="#51-sensitivity-labels-implementation" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>5.1.1 Label Creation Procedure&lt;span class="hx-absolute -hx-mt-20" id="511-label-creation-procedure">&lt;/span>
+&lt;a href="#511-label-creation-procedure" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Preparation&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Validate licensing requirements&lt;/li>
+&lt;li>Ensure administrative access to Microsoft Purview compliance portal&lt;/li>
+&lt;li>Prepare label taxonomy documentation&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Implementation Steps&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Create parent labels first, followed by sub-labels&lt;/li>
+&lt;li>Configure label settings according to specifications&lt;/li>
+&lt;li>Test label application in isolated environment&lt;/li>
+&lt;li>Create label policies with appropriate scoping&lt;/li>
+&lt;li>Deploy to pilot group before organization-wide deployment&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>PowerShell Implementation&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Connect to Security &amp;amp; Compliance PowerShell&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Connect-IPPSSession -UserPrincipalName admin@organization.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Create parent label&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New-Label -Name &lt;span style="color:#e6db74">&amp;#34;Highly Confidential&amp;#34;&lt;/span> -DisplayName &lt;span style="color:#e6db74">&amp;#34;Highly Confidential&amp;#34;&lt;/span> -Tooltip &lt;span style="color:#e6db74">&amp;#34;Highly sensitive regulated information&amp;#34;&lt;/span> -AdvancedSettings @{Color=&lt;span style="color:#e6db74">&amp;#34;#FF0000&amp;#34;&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Create sub-label&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New-Label -Name &lt;span style="color:#e6db74">&amp;#34;Highly Confidential/Financial&amp;#34;&lt;/span> -DisplayName &lt;span style="color:#e6db74">&amp;#34;Highly Confidential - Financial&amp;#34;&lt;/span> -Tooltip &lt;span style="color:#e6db74">&amp;#34;Financial records and regulated financial data&amp;#34;&lt;/span> -ParentId &lt;span style="color:#e6db74">&amp;#34;Highly Confidential&amp;#34;&lt;/span> -EncryptionEnabled $true -EncryptionProtectionType &lt;span style="color:#e6db74">&amp;#34;Template&amp;#34;&lt;/span> -EncryptionTemplateId &lt;span style="color:#e6db74">&amp;#34;Financial-Data-Template&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Create label policy&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New-LabelPolicy -Name &lt;span style="color:#e6db74">&amp;#34;Global-Sensitivity-Label-Policy&amp;#34;&lt;/span> -Labels &lt;span style="color:#e6db74">&amp;#34;Personal&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;Public&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;General&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;Confidential&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;Highly Confidential&amp;#34;&lt;/span> -ExchangeLocation All&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+&lt;button
+class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+title="Copy code"
+>
+&lt;div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h3>5.2 DLP Policy Implementation&lt;span class="hx-absolute -hx-mt-20" id="52-dlp-policy-implementation">&lt;/span>
+&lt;a href="#52-dlp-policy-implementation" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>5.2.1 DLP Policy Creation Procedure&lt;span class="hx-absolute -hx-mt-20" id="521-dlp-policy-creation-procedure">&lt;/span>
+&lt;a href="#521-dlp-policy-creation-procedure" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Preparation&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Inventory sensitive information types&lt;/li>
+&lt;li>Document regulatory requirements&lt;/li>
+&lt;li>Map business processes to data flows&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Implementation Steps&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Create custom sensitive information types if needed&lt;/li>
+&lt;li>Implement policies in simulation mode first&lt;/li>
+&lt;li>Review false positives and tune accordingly&lt;/li>
+&lt;li>Enable policies with user notifications before enforcement&lt;/li>
+&lt;li>Gradually increase enforcement levels&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>PowerShell Implementation&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Connect to Security &amp;amp; Compliance PowerShell&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Connect-IPPSSession -UserPrincipalName admin@organization.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Create DLP Policy&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New-DlpCompliancePolicy -Name &lt;span style="color:#e6db74">&amp;#34;GDPR-Compliance-Policy&amp;#34;&lt;/span> -Mode Enforce -Comment &lt;span style="color:#e6db74">&amp;#34;Enforce GDPR compliance for personal data&amp;#34;&lt;/span> -ExchangeLocation All -SharePointLocation All -OneDriveLocation All -TeamsLocation All
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Create DLP Rule&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New-DlpComplianceRule -Name &lt;span style="color:#e6db74">&amp;#34;GDPR-High-Volume-Rule&amp;#34;&lt;/span> -Policy &lt;span style="color:#e6db74">&amp;#34;GDPR-Compliance-Policy&amp;#34;&lt;/span> -ContentContainsSensitiveInformation @{Name=&lt;span style="color:#e6db74">&amp;#34;EU Passport Number&amp;#34;&lt;/span>; minCount=&lt;span style="color:#e6db74">&amp;#34;10&amp;#34;&lt;/span>} -BlockAccess $true -NotifyUser $true -NotifyUserText &lt;span style="color:#e6db74">&amp;#34;This document contains a high volume of personal data protected under GDPR. Sharing has been blocked.&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+&lt;button
+class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+title="Copy code"
+>
+&lt;div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h2>6. Testing and Validation&lt;span class="hx-absolute -hx-mt-20" id="6-testing-and-validation">&lt;/span>
+&lt;a href="#6-testing-and-validation" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>6.1 Sensitivity Label Testing&lt;span class="hx-absolute -hx-mt-20" id="61-sensitivity-label-testing">&lt;/span>
+&lt;a href="#61-sensitivity-label-testing" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;h4>6.1.1 Test Cases&lt;span class="hx-absolute -hx-mt-20" id="611-test-cases">&lt;/span>
+&lt;a href="#611-test-cases" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Test ID&lt;/th>
+&lt;th style="text-align: left">Description&lt;/th>
+&lt;th style="text-align: left">Expected Result&lt;/th>
+&lt;th style="text-align: left">Validation Method&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">SL&lt;response clipped>&lt;NOTE>To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with &lt;code>grep -n&lt;/code> in order to find the line numbers of what you are looking for.&lt;/NOTE>&lt;/td>
+&lt;td style="text-align: left">&lt;/td>
+&lt;td style="text-align: left">&lt;/td>
+&lt;td style="text-align: left">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>
