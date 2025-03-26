@@ -2,55 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/docs/research/dlp-capabilities/</loc>
+    <loc>//localhost:1313/docs/executive-view/business-case/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/</loc>
+    <loc>//localhost:1313/docs/business-value/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/strategic-design/high-level-architecture/</loc>
+    <loc>//localhost:1313/docs/audience-paths/c-level-executives/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/implementation/implementation-plan/</loc>
+    <loc>//localhost:1313/docs/executive-view/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/introduction/</loc>
+    <loc>//localhost:1313/docs/solution-architecture/implementation-framework/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/governance/sensitivity-label-taxonomy/</loc>
+    <loc>//localhost:1313/docs/audience-paths/it-security-leaders/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/enhancements/user-training-awareness/</loc>
+    <loc>//localhost:1313/docs/solution-architecture/reference-architectures/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/strategic-design/detailed-technical-design/</loc>
+    <loc>//localhost:1313/docs/business-value/roi-calculator/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/governance/dlp-policy-catalog/</loc>
+    <loc>//localhost:1313/docs/solution-architecture/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/enhancements/implementation-playbooks/</loc>
+    <loc>//localhost:1313/docs/executive-view/strategic-value/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/research/</loc>
+    <loc>//localhost:1313/docs/audience-paths/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/research/sensitivity-labels/</loc>
+    <loc>//localhost:1313/docs/business-value/case-studies/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/implementation/stakeholder-engagement/</loc>
+    <loc>//localhost:1313/docs/audience-paths/implementation-teams/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/enhancements/cost-benefit-analysis/</loc>
+    <loc>//localhost:1313/docs/solution-architecture/integration-models/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/governance/dlp-policy-rules-matrix/</loc>
+    <loc>//localhost:1313/docs/executive-view/risk-reduction/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/research/regulatory-requirements/</loc>
+    <loc>//localhost:1313/docs/executive-view/compliance-assurance/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/implementation/risk-assessment/</loc>
+    <loc>//localhost:1313/docs/audience-paths/compliance-officers/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/strategic-design/</loc>
+    <loc>//localhost:1313/docs/solution-architecture/maturity-assessment/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/governance/</loc>
+    <loc>//localhost:1313/docs/executive-view/implementation-roadmap/</loc>
   </url><url>
-    <loc>//localhost:1313/docs/enhancements/security-ecosystem-integration/</loc>
-  </url><url>
-    <loc>//localhost:1313/docs/implementation/</loc>
-  </url><url>
-    <loc>//localhost:1313/docs/enhancements/industry-specific-use-cases/</loc>
-  </url><url>
-    <loc>//localhost:1313/docs/enhancements/</loc>
+    <loc>//localhost:1313/docs/solution-architecture/technical-requirements/</loc>
   </url><url>
     <loc>//localhost:1313/about/</loc>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
+  </url><url>
+    <loc>//localhost:1313/docs/</loc>
   </url><url>
     <loc>//localhost:1313/</loc>
   </url><url>

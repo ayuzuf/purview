@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
+<title>Technical Requirements – Microsoft Purview DLP and Sensitivity Labels Implementation Framework</title>
+  <meta name="description" content="Technical Requirements for Microsoft Purview ImplementationOverview This section outlines the comprehensive technical requirements for successfully implementing Microsoft Purview DLP and Sensitivity Labels within FTSE 100 financial services organizations. Understanding and addressing these requirements is critical for ensuring a robust, compliant, and effective implementation.
+Microsoft 365 Environment Requirements Licensing Requirements License Type Features Included Recommended For Microsoft 365 E5 Full Microsoft Purview capabilities including advanced DLP, Information Protection, Insider Risk Management, and Communication Compliance Enterprise-wide implementation with comprehensive protection needs Microsoft 365 E5 Compliance Add-on to E3 licenses providing full compliance capabilities Organizations with existing E3 licensing Microsoft 365 E3 &#43; Information Protection and Governance Core sensitivity labels and basic DLP capabilities Limited implementations with basic requirements Microsoft Purview Information Protection Standalone offering for sensitivity labels and basic protection Specialized implementation scenarios Financial Services Considerations:" /><link rel="canonical" href="//localhost:1313/docs/solution-architecture/technical-requirements/" itemprop="url" />
+
+<meta property="og:title" content="Technical Requirements" />
+<meta property="og:description" content="Technical Requirements for Microsoft Purview ImplementationOverview
+    This section outlines the comprehensive technical requirements for successfully implementing Microsoft Purview DLP and Sensitivity Labels within FTSE 100 financial services organizations. Understanding and addressing these requirements is critical for ensuring a robust, compliant, and effective implementation.
+Microsoft 365 Environment Requirements
+    Licensing Requirements
+    
+  
+      
+          License Type
+          Features Included
+          Recommended For
+      
+  
+  
+      
+          Microsoft 365 E5
+          Full Microsoft Purview capabilities including advanced DLP, Information Protection, Insider Risk Management, and Communication Compliance
+          Enterprise-wide implementation with comprehensive protection needs
+      
+      
+          Microsoft 365 E5 Compliance
+          Add-on to E3 licenses providing full compliance capabilities
+          Organizations with existing E3 licensing
+      
+      
+          Microsoft 365 E3 &#43; Information Protection and Governance
+          Core sensitivity labels and basic DLP capabilities
+          Limited implementations with basic requirements
+      
+      
+          Microsoft Purview Information Protection
+          Standalone offering for sensitivity labels and basic protection
+          Specialized implementation scenarios
+      
+  
+
+Financial Services Considerations:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="//localhost:1313/docs/solution-architecture/technical-requirements/" /><meta property="article:section" content="docs" />
+
+
+
+  <meta itemprop="name" content="Technical Requirements">
+  <meta itemprop="description" content="Technical Requirements for Microsoft Purview ImplementationOverview This section outlines the comprehensive technical requirements for successfully implementing Microsoft Purview DLP and Sensitivity Labels within FTSE 100 financial services organizations. Understanding and addressing these requirements is critical for ensuring a robust, compliant, and effective implementation.
+Microsoft 365 Environment Requirements Licensing Requirements License Type Features Included Recommended For Microsoft 365 E5 Full Microsoft Purview capabilities including advanced DLP, Information Protection, Insider Risk Management, and Communication Compliance Enterprise-wide implementation with comprehensive protection needs Microsoft 365 E5 Compliance Add-on to E3 licenses providing full compliance capabilities Organizations with existing E3 licensing Microsoft 365 E3 &#43; Information Protection and Governance Core sensitivity labels and basic DLP capabilities Limited implementations with basic requirements Microsoft Purview Information Protection Standalone offering for sensitivity labels and basic protection Specialized implementation scenarios Financial Services Considerations:">
+  <meta itemprop="wordCount" content="1498">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Technical Requirements">
+  <meta name="twitter:description" content="Technical Requirements for Microsoft Purview ImplementationOverview This section outlines the comprehensive technical requirements for successfully implementing Microsoft Purview DLP and Sensitivity Labels within FTSE 100 financial services organizations. Understanding and addressing these requirements is critical for ensuring a robust, compliant, and effective implementation.
+Microsoft 365 Environment Requirements Licensing Requirements License Type Features Included Recommended For Microsoft 365 E5 Full Microsoft Purview capabilities including advanced DLP, Information Protection, Insider Risk Management, and Communication Compliance Enterprise-wide implementation with comprehensive protection needs Microsoft 365 E5 Compliance Add-on to E3 licenses providing full compliance capabilities Organizations with existing E3 licensing Microsoft 365 E3 &#43; Information Protection and Governance Core sensitivity labels and basic DLP capabilities Limited implementations with basic requirements Microsoft Purview Information Protection Standalone offering for sensitivity labels and basic protection Specialized implementation scenarios Financial Services Considerations:">
+
+    <link href="/css/compiled/main.css" rel="stylesheet" />
+
+
+
+  <link href="/css/custom.css" rel="stylesheet" />
+
+
+  <script>
+     
+    const defaultTheme = 'system';
+
+    const setDarkTheme = () => {
+      document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
+    }
+    const setLightTheme = () => {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
+    }
+
+    if ("color-theme" in localStorage) {
+      localStorage.getItem("color-theme") === "dark" ? setDarkTheme() : setLightTheme();
+    } else {
+      defaultTheme === "dark" ? setDarkTheme() : setLightTheme();
+      if (defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? setDarkTheme() : setLightTheme();
+      }
+    }
+  </script>
+
+  
+</head>
+<body dir="ltr"><div class="nav-container hx-sticky hx-top-0 hx-z-20 hx-w-full hx-bg-transparent print:hx-hidden">
+  <div class="nav-container-blur hx-pointer-events-none hx-absolute hx-z-[-1] hx-h-full hx-w-full hx-bg-white dark:hx-bg-dark hx-shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] contrast-more:hx-shadow-[0_0_0_1px_#000] dark:hx-shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:dark:hx-shadow-[0_0_0_1px_#fff]"></div>
+
+  <nav class="hx-mx-auto hx-flex hx-items-center hx-justify-end hx-gap-2 hx-h-16 hx-px-6 hx-max-w-[90rem]">
+    <a class="hx-flex hx-items-center hover:hx-opacity-75 ltr:hx-mr-auto rtl:hx-ml-auto" href="/">
+        <span class="hx-mr-2 hx-font-extrabold hx-inline hx-select-none" title="Microsoft Purview DLP and Sensitivity Labels Implementation Framework">Microsoft Purview DLP and Sensitivity Labels Implementation Framework</span>
+    </a><a
+            title="Home"
+            href="/"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
+          >
+            <span class="hx-text-center">Home</span>
+          </a><a
+            title="Docs"
+            href="/docs/"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
+          >
+            <span class="hx-text-center">Docs</span>
+          </a><button type="button" aria-label="Menu" class="hamburger-menu -hx-mr-2 hx-rounded hx-p-2 active:hx-bg-gray-400/20 md:hx-hidden"><svg height=24 fill="none" viewBox="0 0 24 24" stroke="currentColor"><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8H20"></path></g><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16H20"></path></g></svg></button>
+  </nav>
+</div>
+
+  <div class='hx-mx-auto hx-flex hx-max-w-screen-xl'>
+    <div class="mobile-menu-overlay [transition:background-color_1.5s_ease] hx-fixed hx-inset-0 hx-z-10 hx-bg-black/80 dark:hx-bg-black/60 hx-hidden"></div>
+<aside class="sidebar-container hx-flex hx-flex-col print:hx-hidden md:hx-top-16 md:hx-shrink-0 md:hx-w-64 md:hx-self-start max-md:[transform:translate3d(0,-100%,0)] md:hx-sticky">
+  
+  <div class="hx-px-4 hx-pt-4 md:hx-hidden">
+    <div class="search-wrapper hx-relative md:hx-w-64">
+  <div class="hx-relative hx-flex hx-items-center hx-text-gray-900 contrast-more:hx-text-gray-800 dark:hx-text-gray-300 contrast-more:dark:hx-text-gray-300">
+    <input
+      placeholder="Search..."
+      class="search-input hx-block hx-w-full hx-appearance-none hx-rounded-lg hx-px-3 hx-py-2 hx-transition-colors hx-text-base hx-leading-tight md:hx-text-sm hx-bg-black/[.05] dark:hx-bg-gray-50/10 focus:hx-bg-white dark:focus:hx-bg-dark placeholder:hx-text-gray-500 dark:placeholder:hx-text-gray-400 contrast-more:hx-border contrast-more:hx-border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx-absolute hx-my-1.5 hx-select-none ltr:hx-right-1.5 rtl:hx-left-1.5 hx-h-5 hx-rounded hx-bg-white hx-px-1.5 hx-font-mono hx-text-[10px] hx-font-medium hx-text-gray-500 hx-border dark:hx-border-gray-100/20 dark:hx-bg-dark/50 contrast-more:hx-border-current contrast-more:hx-text-current contrast-more:dark:hx-border-current hx-items-center hx-gap-1 hx-transition-opacity hx-pointer-events-none hx-hidden sm:hx-flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="search-results hextra-scrollbar hx-hidden hx-border hx-border-gray-200 hx-bg-white hx-text-gray-100 dark:hx-border-neutral-800 dark:hx-bg-neutral-900 hx-absolute hx-top-full hx-z-20 hx-mt-2 hx-overflow-auto hx-overscroll-contain hx-rounded-xl hx-py-2.5 hx-shadow-xl hx-max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] md:hx-max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx-inset-x-0 ltr:md:hx-left-auto rtl:md:hx-right-auto contrast-more:hx-border contrast-more:hx-border-gray-900 contrast-more:dark:hx-border-gray-50 hx-w-screen hx-min-h-[100px] hx-max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+
+  </div>
+  <div class="hextra-scrollbar hx-overflow-y-auto hx-overflow-x-hidden hx-p-4 hx-grow md:hx-h-[calc(100vh-var(--navbar-height)-var(--menu-height))]">
+    <ul class="hx-flex hx-flex-col hx-gap-1 md:hx-hidden">
+      
+      
+          <li class=""><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/about/"
+    
+  >About
+    </a></li>
+          <li class="open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/"
+    
+  >Docs
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/business-value/"
+    
+  >Business Value
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a>
+              <div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/business-value/roi-calculator/"
+    
+  >ROI Calculator
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/business-value/case-studies/"
+    
+  >Case Studies
+    </a>
+              
+            </li></ul>
+      </div>
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/"
+    
+  >Executive View
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a>
+              <div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/business-case/"
+    
+  >Business Case
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/strategic-value/"
+    
+  >Strategic Value
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/risk-reduction/"
+    
+  >Risk Reduction
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/compliance-assurance/"
+    
+  >Compliance Assurance
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/implementation-roadmap/"
+    
+  >Implementation Roadmap
+    </a>
+              
+            </li></ul>
+      </div>
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/solution-architecture/"
+    
+  >Solution Architecture
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a>
+              <div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/solution-architecture/implementation-framework/"
+    
+  >Implementation Framework
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/solution-architecture/reference-architectures/"
+    
+  >Reference Architectures
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/solution-architecture/integration-models/"
+    
+  >Integration Models
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/solution-architecture/maturity-assessment/"
+    
+  >Maturity Assessment
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/solution-architecture/technical-requirements/"
+    
+  >Technical Requirements
+    </a>
+  
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
+              <a
+                href="#overview"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Overview</a>
+            </li>
+          <li>
+              <a
+                href="#microsoft-365-environment-requirements"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Microsoft 365 Environment Requirements</a>
+            </li>
+          <li>
+              <a
+                href="#client-environment-requirements"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Client Environment Requirements</a>
+            </li>
+          <li>
+              <a
+                href="#network-and-infrastructure-requirements"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Network and Infrastructure Requirements</a>
+            </li>
+          <li>
+              <a
+                href="#security-and-compliance-requirements"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Security and Compliance Requirements</a>
+            </li>
+          <li>
+              <a
+                href="#integration-requirements"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Integration Requirements</a>
+            </li>
+          <li>
+              <a
+                href="#operational-requirements"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Operational Requirements</a>
+            </li>
+          <li>
+              <a
+                href="#implementation-requirements"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Implementation Requirements</a>
+            </li>
+          </ul>
+  
+              
+            </li></ul>
+      </div>
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/audience-paths/"
+    
+  >Audience Paths
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a>
+              <div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/audience-paths/c-level-executives/"
+    
+  >C-Level Executives
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/audience-paths/it-security-leaders/"
+    
+  >IT Security Leaders
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/audience-paths/implementation-teams/"
+    
+  >Implementation Teams
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/audience-paths/compliance-officers/"
+    
+  >Compliance Officers
+    </a>
+              
+            </li></ul>
+      </div>
+            </li></ul>
+      </div></li>
+    </ul>
+
+    <ul class="hx-flex hx-flex-col hx-gap-1 max-md:hx-hidden">
+        
+          <li class=""><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/business-value/"
+    
+  >Business Value
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/business-value/roi-calculator/"
+    
+  >ROI Calculator
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/business-value/case-studies/"
+    
+  >Case Studies
+    </a>
+              
+            </li></ul>
+      </div></li>
+          <li class=""><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/"
+    
+  >Executive View
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/business-case/"
+    
+  >Business Case
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/strategic-value/"
+    
+  >Strategic Value
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/risk-reduction/"
+    
+  >Risk Reduction
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/compliance-assurance/"
+    
+  >Compliance Assurance
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/executive-view/implementation-roadmap/"
+    
+  >Implementation Roadmap
+    </a>
+              
+            </li></ul>
+      </div></li>
+          <li class="open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/solution-architecture/"
+    
+  >Solution Architecture
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/solution-architecture/implementation-framework/"
+    
+  >Implementation Framework
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/solution-architecture/reference-architectures/"
+    
+  >Reference Architectures
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/solution-architecture/integration-models/"
+    
+  >Integration Models
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/solution-architecture/maturity-assessment/"
+    
+  >Maturity Assessment
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/solution-architecture/technical-requirements/"
+    
+  >Technical Requirements
+    </a>
+              
+            </li></ul>
+      </div></li>
+          <li class=""><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/audience-paths/"
+    
+  >Audience Paths
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/audience-paths/c-level-executives/"
+    
+  >C-Level Executives
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/audience-paths/it-security-leaders/"
+    
+  >IT Security Leaders
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/audience-paths/implementation-teams/"
+    
+  >Implementation Teams
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/audience-paths/compliance-officers/"
+    
+  >Compliance Officers
+    </a>
+              
+            </li></ul>
+      </div></li>
+        
+      </ul>
+    </div>
+  
+  
+    <div class="  hx-sticky hx-bottom-0 hx-bg-white dark:hx-bg-dark hx-mx-4 hx-py-4 hx-shadow-[0_-12px_16px_#fff] hx-flex hx-items-center hx-gap-2 dark:hx-border-neutral-800 dark:hx-shadow-[0_-12px_16px_#111] contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-shadow-none hx-border-t" data-toggle-animation="show"><div class="hx-flex hx-grow hx-flex-col"><button
+  title="Change theme"
+  data-theme="light"
+  class="theme-toggle hx-group hx-h-7 hx-rounded-md hx-px-2 hx-text-left hx-text-xs hx-font-medium hx-text-gray-600 hx-transition-colors dark:hx-text-gray-400 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50"
+  type="button"
+  aria-label="Change theme"
+>
+  <div class="hx-flex hx-items-center hx-gap-2 hx-capitalize"><svg height=12 class="group-data-[theme=light]:hx-hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg><span class="group-data-[theme=light]:hx-hidden">Light</span><svg height=12 class="group-data-[theme=dark]:hx-hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg><span class="group-data-[theme=dark]:hx-hidden">Dark</span></div>
+</button>
+</div></div></aside>
+    
+<nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
+    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#overview">Overview
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#microsoft-365-environment-requirements">Microsoft 365 Environment Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#licensing-requirements">Licensing Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#microsoft-365-services-requirements">Microsoft 365 Services Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#identity-and-access-requirements">Identity and Access Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#client-environment-requirements">Client Environment Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#windows-client-requirements">Windows Client Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#macos-client-requirements">macOS Client Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#mobile-device-requirements">Mobile Device Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#network-and-infrastructure-requirements">Network and Infrastructure Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#network-requirements">Network Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#on-premises-infrastructure-requirements">On-Premises Infrastructure Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#cloud-infrastructure-requirements">Cloud Infrastructure Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#security-and-compliance-requirements">Security and Compliance Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#security-requirements">Security Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#compliance-requirements">Compliance Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#governance-requirements">Governance Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#integration-requirements">Integration Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#microsoft-365-integration-requirements">Microsoft 365 Integration Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#third-party-integration-requirements">Third-Party Integration Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#financial-services-application-integration-requirements">Financial Services Application Integration Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#operational-requirements">Operational Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#administration-requirements">Administration Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#monitoring-requirements">Monitoring Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#support-requirements">Support Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#implementation-requirements">Implementation Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#project-requirements">Project Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#testing-requirements">Testing Requirements
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#training-requirements">Training Requirements
+        </a>
+      </li></ul>
+      <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
+        <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
+          <span>Scroll to top</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx-inline ltr:hx-ml-1 rtl:hx-mr-1 hx-h-3.5 hx-w-3.5 hx-border hx-rounded-full hx-border-gray-500 hover:hx-border-gray-900 dark:hx-border-gray-400 dark:hover:hx-border-gray-100 contrast-more:hx-border-gray-800 contrast-more:dark:hx-border-gray-50">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+    <article class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12">
+        
+  <div class="hx-mt-1.5 hx-flex hx-items-center hx-gap-1 hx-overflow-hidden hx-text-sm hx-text-gray-500 dark:hx-text-gray-400 contrast-more:hx-text-current">
+        <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
+          <a href="/docs/">Docs</a>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
+          <a href="/docs/solution-architecture/">Solution Architecture</a>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Technical Requirements</div>
+  </div>
+
+        <div class="content">
+          <h1>Technical Requirements</h1>
+          <h1>Technical Requirements for Microsoft Purview Implementation</h1><h2>Overview<span class="hx-absolute -hx-mt-20" id="overview"></span>
+    <a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>This section outlines the comprehensive technical requirements for successfully implementing Microsoft Purview DLP and Sensitivity Labels within FTSE 100 financial services organizations. Understanding and addressing these requirements is critical for ensuring a robust, compliant, and effective implementation.</p>
+<h2>Microsoft 365 Environment Requirements<span class="hx-absolute -hx-mt-20" id="microsoft-365-environment-requirements"></span>
+    <a href="#microsoft-365-environment-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Licensing Requirements<span class="hx-absolute -hx-mt-20" id="licensing-requirements"></span>
+    <a href="#licensing-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>License Type</th>
+          <th>Features Included</th>
+          <th>Recommended For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Microsoft 365 E5</strong></td>
+          <td>Full Microsoft Purview capabilities including advanced DLP, Information Protection, Insider Risk Management, and Communication Compliance</td>
+          <td>Enterprise-wide implementation with comprehensive protection needs</td>
+      </tr>
+      <tr>
+          <td><strong>Microsoft 365 E5 Compliance</strong></td>
+          <td>Add-on to E3 licenses providing full compliance capabilities</td>
+          <td>Organizations with existing E3 licensing</td>
+      </tr>
+      <tr>
+          <td><strong>Microsoft 365 E3 + Information Protection and Governance</strong></td>
+          <td>Core sensitivity labels and basic DLP capabilities</td>
+          <td>Limited implementations with basic requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Microsoft Purview Information Protection</strong></td>
+          <td>Standalone offering for sensitivity labels and basic protection</td>
+          <td>Specialized implementation scenarios</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Financial Services Considerations</strong>:</p>
+<ul>
+<li>Regulatory requirements may necessitate E5-level capabilities</li>
+<li>Trading floor environments typically require E5 for communication compliance</li>
+<li>Consider specialized licensing for high-risk departments vs. general users</li>
+<li>Evaluate cost allocation across business units based on risk profile</li>
+</ul>
+<h3>Microsoft 365 Services Requirements<span class="hx-absolute -hx-mt-20" id="microsoft-365-services-requirements"></span>
+    <a href="#microsoft-365-services-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Minimum Version</th>
+          <th>Recommended Configuration</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Exchange Online</strong></td>
+          <td>Plan 2</td>
+          <td>Advanced Threat Protection, Mailbox Auditing Enabled</td>
+      </tr>
+      <tr>
+          <td><strong>SharePoint Online</strong></td>
+          <td>Plan 2</td>
+          <td>Modern Authentication, External Sharing Controls</td>
+      </tr>
+      <tr>
+          <td><strong>OneDrive for Business</strong></td>
+          <td>Plan 2</td>
+          <td>Known Folder Move, Conditional Access</td>
+      </tr>
+      <tr>
+          <td><strong>Microsoft Teams</strong></td>
+          <td>Standard</td>
+          <td>Advanced Communication Compliance, Private Channel Controls</td>
+      </tr>
+      <tr>
+          <td><strong>Azure Active Directory</strong></td>
+          <td>Premium P2</td>
+          <td>Conditional Access, Privileged Identity Management</td>
+      </tr>
+      <tr>
+          <td><strong>Microsoft Defender for Cloud Apps</strong></td>
+          <td>Standard</td>
+          <td>Connected Apps, Shadow IT Discovery</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Financial Services Considerations</strong>:</p>
+<ul>
+<li>Financial data handling may require specific Exchange transport rules</li>
+<li>Document collaboration in deal teams requires specific SharePoint security</li>
+<li>Teams compliance for trading communications requires specialized configuration</li>
+<li>Financial application integration may require specific Azure AD configurations</li>
+</ul>
+<h3>Identity and Access Requirements<span class="hx-absolute -hx-mt-20" id="identity-and-access-requirements"></span>
+    <a href="#identity-and-access-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Authentication</strong></td>
+          <td>Modern Authentication, Multi-Factor Authentication</td>
+          <td>Step-up authentication for financial transactions</td>
+      </tr>
+      <tr>
+          <td><strong>Directory Services</strong></td>
+          <td>Azure AD Connect (hybrid), Azure AD P2</td>
+          <td>Complex organizational structures in financial institutions</td>
+      </tr>
+      <tr>
+          <td><strong>Conditional Access</strong></td>
+          <td>Device compliance, location-based policies</td>
+          <td>Trading floor vs. remote access policies</td>
+      </tr>
+      <tr>
+          <td><strong>Privileged Access</strong></td>
+          <td>Privileged Identity Management</td>
+          <td>Regulatory requirements for privileged access</td>
+      </tr>
+      <tr>
+          <td><strong>Guest Access</strong></td>
+          <td>B2B Collaboration settings</td>
+          <td>Secure collaboration with external financial partners</td>
+      </tr>
+  </tbody>
+</table>
+<h2>Client Environment Requirements<span class="hx-absolute -hx-mt-20" id="client-environment-requirements"></span>
+    <a href="#client-environment-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Windows Client Requirements<span class="hx-absolute -hx-mt-20" id="windows-client-requirements"></span>
+    <a href="#windows-client-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Minimum Requirement</th>
+          <th>Recommended</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Operating System</strong></td>
+          <td>Windows 10 1809+</td>
+          <td>Windows 11 21H2+</td>
+      </tr>
+      <tr>
+          <td><strong>Office Applications</strong></td>
+          <td>Microsoft 365 Apps for Enterprise (Version 1908+)</td>
+          <td>Latest Current Channel</td>
+      </tr>
+      <tr>
+          <td><strong>Browser</strong></td>
+          <td>Microsoft Edge Chromium</td>
+          <td>Microsoft Edge with enhanced security configuration</td>
+      </tr>
+      <tr>
+          <td><strong>Client Configuration</strong></td>
+          <td>Azure AD Join or Hybrid Join</td>
+          <td>Intune managed with security baselines</td>
+      </tr>
+      <tr>
+          <td><strong>Unified Labeling Client</strong></td>
+          <td>Automatically installed with Office</td>
+          <td>Latest version</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Financial Services Considerations</strong>:</p>
+<ul>
+<li>Trading terminals may require special configuration</li>
+<li>Specialized financial applications may require compatibility testing</li>
+<li>High-performance requirements for trading environments</li>
+<li>Thin client environments common in branch locations</li>
+</ul>
+<h3>macOS Client Requirements<span class="hx-absolute -hx-mt-20" id="macos-client-requirements"></span>
+    <a href="#macos-client-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Minimum Requirement</th>
+          <th>Recommended</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Operating System</strong></td>
+          <td>macOS 10.14 (Mojave)+</td>
+          <td>macOS 12 (Monterey)+</td>
+      </tr>
+      <tr>
+          <td><strong>Office Applications</strong></td>
+          <td>Microsoft 365 Apps for Mac (16.40+)</td>
+          <td>Latest version</td>
+      </tr>
+      <tr>
+          <td><strong>Browser</strong></td>
+          <td>Microsoft Edge for Mac</td>
+          <td>Latest version with enhanced security</td>
+      </tr>
+      <tr>
+          <td><strong>Client Configuration</strong></td>
+          <td>Azure AD Registration</td>
+          <td>Intune managed with security baselines</td>
+      </tr>
+      <tr>
+          <td><strong>Unified Labeling Client</strong></td>
+          <td>Manually installed</td>
+          <td>Latest version</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Financial Services Considerations</strong>:</p>
+<ul>
+<li>Common in investment banking and wealth management</li>
+<li>Design teams often use macOS for financial marketing materials</li>
+<li>Executive preference for macOS in many financial institutions</li>
+<li>Integration with financial applications on macOS platform</li>
+</ul>
+<h3>Mobile Device Requirements<span class="hx-absolute -hx-mt-20" id="mobile-device-requirements"></span>
+    <a href="#mobile-device-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Platform</th>
+          <th>Minimum Requirement</th>
+          <th>Recommended Configuration</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>iOS</strong></td>
+          <td>iOS 13+</td>
+          <td>Intune MDM, App Protection Policies</td>
+      </tr>
+      <tr>
+          <td><strong>Android</strong></td>
+          <td>Android 8.0+</td>
+          <td>Intune MDM, App Protection Policies</td>
+      </tr>
+      <tr>
+          <td><strong>Office Mobile Apps</strong></td>
+          <td>Latest versions</td>
+          <td>Data Protection Policies Applied</td>
+      </tr>
+      <tr>
+          <td><strong>Outlook Mobile</strong></td>
+          <td>Latest version</td>
+          <td>Sensitivity label support enabled</td>
+      </tr>
+      <tr>
+          <td><strong>OneDrive Mobile</strong></td>
+          <td>Latest version</td>
+          <td>Files On-Demand configured</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Financial Services Considerations</strong>:</p>
+<ul>
+<li>BYOD vs. corporate-owned device policies</li>
+<li>Specialized financial apps on mobile platforms</li>
+<li>Client-facing roles with mobile access to sensitive data</li>
+<li>Regulatory requirements for mobile device security</li>
+</ul>
+<h2>Network and Infrastructure Requirements<span class="hx-absolute -hx-mt-20" id="network-and-infrastructure-requirements"></span>
+    <a href="#network-and-infrastructure-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Network Requirements<span class="hx-absolute -hx-mt-20" id="network-requirements"></span>
+    <a href="#network-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Internet Connectivity</strong></td>
+          <td>Reliable connection to Microsoft 365 services</td>
+          <td>Trading environments require high availability</td>
+      </tr>
+      <tr>
+          <td><strong>Bandwidth</strong></td>
+          <td>Minimum 50 Kbps per user (recommended: 100+ Kbps per user)</td>
+          <td>High-volume financial data may require more</td>
+      </tr>
+      <tr>
+          <td><strong>Latency</strong></td>
+          <td>Less than 150ms to Microsoft 365 service endpoints</td>
+          <td>Trading applications require ultra-low latency</td>
+      </tr>
+      <tr>
+          <td><strong>Proxy/Firewall</strong></td>
+          <td>Allow Microsoft 365 endpoints and IP ranges</td>
+          <td>Financial security requirements for network segmentation</td>
+      </tr>
+      <tr>
+          <td><strong>Quality of Service</strong></td>
+          <td>Prioritization for Microsoft 365 traffic</td>
+          <td>Real-time financial data prioritization</td>
+      </tr>
+  </tbody>
+</table>
+<h3>On-Premises Infrastructure Requirements<span class="hx-absolute -hx-mt-20" id="on-premises-infrastructure-requirements"></span>
+    <a href="#on-premises-infrastructure-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Active Directory</strong></td>
+          <td>Windows Server 2016+ Domain Controllers</td>
+          <td>Complex financial organizational structures</td>
+      </tr>
+      <tr>
+          <td><strong>Exchange Server</strong></td>
+          <td>Exchange 2016+ (if hybrid)</td>
+          <td>Financial message compliance requirements</td>
+      </tr>
+      <tr>
+          <td><strong>SharePoint Server</strong></td>
+          <td>SharePoint 2016+ (if hybrid)</td>
+          <td>Legacy financial document repositories</td>
+      </tr>
+      <tr>
+          <td><strong>Azure AD Connect</strong></td>
+          <td>Latest version</td>
+          <td>Identity synchronization for financial applications</td>
+      </tr>
+      <tr>
+          <td><strong>Network Devices</strong></td>
+          <td>Support for TLS 1.2+, modern cipher suites</td>
+          <td>Financial network security requirements</td>
+      </tr>
+  </tbody>
+</table>
+<h3>Cloud Infrastructure Requirements<span class="hx-absolute -hx-mt-20" id="cloud-infrastructure-requirements"></span>
+    <a href="#cloud-infrastructure-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Azure Subscription</strong></td>
+          <td>Active subscription for supporting services</td>
+          <td>Financial data sovereignty requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Azure Information Protection Scanner</strong></td>
+          <td>For on-premises data discovery</td>
+          <td>Legacy financial system scanning</td>
+      </tr>
+      <tr>
+          <td><strong>Log Analytics Workspace</strong></td>
+          <td>For advanced monitoring</td>
+          <td>Financial security monitoring requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Storage Account</strong></td>
+          <td>For storing audit logs and reports</td>
+          <td>Financial data retention requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Key Vault</strong></td>
+          <td>For encryption key management</td>
+          <td>Financial cryptographic requirements</td>
+      </tr>
+  </tbody>
+</table>
+<h2>Security and Compliance Requirements<span class="hx-absolute -hx-mt-20" id="security-and-compliance-requirements"></span>
+    <a href="#security-and-compliance-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Security Requirements<span class="hx-absolute -hx-mt-20" id="security-requirements"></span>
+    <a href="#security-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Encryption</strong></td>
+          <td>TLS 1.2+ for all communications</td>
+          <td>Financial-grade encryption requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Data at Rest Encryption</strong></td>
+          <td>BitLocker for endpoints, Service Encryption for cloud</td>
+          <td>Regulatory requirements for financial data</td>
+      </tr>
+      <tr>
+          <td><strong>Key Management</strong></td>
+          <td>Customer Key for highest sensitivity</td>
+          <td>Financial cryptographic key management</td>
+      </tr>
+      <tr>
+          <td><strong>Anti-malware</strong></td>
+          <td>Microsoft Defender or equivalent</td>
+          <td>Financial-specific threat protection</td>
+      </tr>
+      <tr>
+          <td><strong>Endpoint Security</strong></td>
+          <td>Microsoft Defender for Endpoint or equivalent</td>
+          <td>Protection for financial endpoints</td>
+      </tr>
+  </tbody>
+</table>
+<h3>Compliance Requirements<span class="hx-absolute -hx-mt-20" id="compliance-requirements"></span>
+    <a href="#compliance-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Data Residency</strong></td>
+          <td>Compliance with regional requirements</td>
+          <td>Financial data sovereignty requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Audit Logging</strong></td>
+          <td>Comprehensive logging enabled</td>
+          <td>Financial regulatory audit requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Retention Policies</strong></td>
+          <td>Configured based on regulatory requirements</td>
+          <td>Financial data retention regulations</td>
+      </tr>
+      <tr>
+          <td><strong>eDiscovery</strong></td>
+          <td>Configured for legal and compliance needs</td>
+          <td>Financial investigation capabilities</td>
+      </tr>
+      <tr>
+          <td><strong>Data Loss Prevention</strong></td>
+          <td>Configured for sensitive financial data</td>
+          <td>Financial-specific DLP policies</td>
+      </tr>
+  </tbody>
+</table>
+<h3>Governance Requirements<span class="hx-absolute -hx-mt-20" id="governance-requirements"></span>
+    <a href="#governance-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Information Governance</strong></td>
+          <td>Retention labels and policies</td>
+          <td>Financial record-keeping requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Access Reviews</strong></td>
+          <td>Regular access validation</td>
+          <td>Financial system access governance</td>
+      </tr>
+      <tr>
+          <td><strong>Policy Management</strong></td>
+          <td>Centralized policy administration</td>
+          <td>Financial policy governance</td>
+      </tr>
+      <tr>
+          <td><strong>Risk Management</strong></td>
+          <td>Insider risk policies</td>
+          <td>Financial fraud prevention</td>
+      </tr>
+      <tr>
+          <td><strong>Compliance Management</strong></td>
+          <td>Compliance portal configuration</td>
+          <td>Financial regulatory dashboard</td>
+      </tr>
+  </tbody>
+</table>
+<h2>Integration Requirements<span class="hx-absolute -hx-mt-20" id="integration-requirements"></span>
+    <a href="#integration-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Microsoft 365 Integration Requirements<span class="hx-absolute -hx-mt-20" id="microsoft-365-integration-requirements"></span>
+    <a href="#microsoft-365-integration-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Integration Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Microsoft Teams</strong></td>
+          <td>Information protection and DLP integration</td>
+          <td>Trading communication compliance</td>
+      </tr>
+      <tr>
+          <td><strong>SharePoint &amp; OneDrive</strong></td>
+          <td>Information protection and DLP integration</td>
+          <td>Deal room and financial document protection</td>
+      </tr>
+      <tr>
+          <td><strong>Exchange Online</strong></td>
+          <td>Information protection and DLP integration</td>
+          <td>Financial email protection</td>
+      </tr>
+      <tr>
+          <td><strong>Office Applications</strong></td>
+          <td>Sensitivity label integration</td>
+          <td>Financial document creation workflow</td>
+      </tr>
+      <tr>
+          <td><strong>Power Platform</strong></td>
+          <td>Data Loss Prevention policies</td>
+          <td>Financial process automation security</td>
+      </tr>
+  </tbody>
+</table>
+<h3>Third-Party Integration Requirements<span class="hx-absolute -hx-mt-20" id="third-party-integration-requirements"></span>
+    <a href="#third-party-integration-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Category</th>
+          <th>Integration Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>SIEM Solutions</strong></td>
+          <td>API connectivity, log ingestion</td>
+          <td>Financial security monitoring</td>
+      </tr>
+      <tr>
+          <td><strong>Cloud Access Security Brokers</strong></td>
+          <td>API connectivity, policy synchronization</td>
+          <td>Financial cloud security</td>
+      </tr>
+      <tr>
+          <td><strong>Data Discovery Tools</strong></td>
+          <td>Classification schema alignment</td>
+          <td>Financial data discovery</td>
+      </tr>
+      <tr>
+          <td><strong>Identity Solutions</strong></td>
+          <td>Authentication and authorization integration</td>
+          <td>Financial identity management</td>
+      </tr>
+      <tr>
+          <td><strong>Endpoint Management</strong></td>
+          <td>Policy deployment integration</td>
+          <td>Financial endpoint security</td>
+      </tr>
+  </tbody>
+</table>
+<h3>Financial Services Application Integration Requirements<span class="hx-absolute -hx-mt-20" id="financial-services-application-integration-requirements"></span>
+    <a href="#financial-services-application-integration-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Application Type</th>
+          <th>Integration Requirement</th>
+          <th>Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Core Banking Systems</strong></td>
+          <td>API connectivity, data classification</td>
+          <td>Customer financial data protection</td>
+      </tr>
+      <tr>
+          <td><strong>Trading Platforms</strong></td>
+          <td>Real-time protection, information barriers</td>
+          <td>Trading compliance requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Wealth Management Platforms</strong></td>
+          <td>Client data protection, document security</td>
+          <td>High-net-worth client protection</td>
+      </tr>
+      <tr>
+          <td><strong>Insurance Systems</strong></td>
+          <td>Policy data protection, claims security</td>
+          <td>Policyholder data protection</td>
+      </tr>
+      <tr>
+          <td><strong>Payment Processing Systems</strong></td>
+          <td>PCI-DSS compliance, transaction security</td>
+          <td>Payment data protection</td>
+      </tr>
+  </tbody>
+</table>
+<h2>Operational Requirements<span class="hx-absolute -hx-mt-20" id="operational-requirements"></span>
+    <a href="#operational-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Administration Requirements<span class="hx-absolute -hx-mt-20" id="administration-requirements"></span>
+    <a href="#administration-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Admin Roles</strong></td>
+          <td>Least privilege model, role separation</td>
+          <td>Financial regulatory requirements for separation of duties</td>
+      </tr>
+      <tr>
+          <td><strong>Admin Accounts</strong></td>
+          <td>Dedicated admin accounts, MFA, PIM</td>
+          <td>Financial security requirements for privileged access</td>
+      </tr>
+      <tr>
+          <td><strong>Admin Workstations</strong></td>
+          <td>Secured, hardened devices</td>
+          <td>Financial administration security</td>
+      </tr>
+      <tr>
+          <td><strong>Change Management</strong></td>
+          <td>Formal change process</td>
+          <td>Financial change control requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Documentation</strong></td>
+          <td>Comprehensive administration guides</td>
+          <td>Financial operational documentation</td>
+      </tr>
+  </tbody>
+</table>
+<h3>Monitoring Requirements<span class="hx-absolute -hx-mt-20" id="monitoring-requirements"></span>
+    <a href="#monitoring-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Service Health</strong></td>
+          <td>Monitoring and alerting</td>
+          <td>Financial business continuity requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Security Monitoring</strong></td>
+          <td>Threat detection and alerting</td>
+          <td>Financial security operations</td>
+      </tr>
+      <tr>
+          <td><strong>Compliance Monitoring</strong></td>
+          <td>Policy violation monitoring</td>
+          <td>Financial regulatory monitoring</td>
+      </tr>
+      <tr>
+          <td><strong>User Activity Monitoring</strong></td>
+          <td>Suspicious activity detection</td>
+          <td>Financial fraud detection</td>
+      </tr>
+      <tr>
+          <td><strong>Performance Monitoring</strong></td>
+          <td>Service performance tracking</td>
+          <td>Financial system performance</td>
+      </tr>
+  </tbody>
+</table>
+<h3>Support Requirements<span class="hx-absolute -hx-mt-20" id="support-requirements"></span>
+    <a href="#support-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Service Desk</strong></td>
+          <td>Trained support personnel</td>
+          <td>Financial-specific support requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Escalation Process</strong></td>
+          <td>Defined escalation paths</td>
+          <td>Financial incident management</td>
+      </tr>
+      <tr>
+          <td><strong>Knowledge Base</strong></td>
+          <td>Comprehensive support documentation</td>
+          <td>Financial support resources</td>
+      </tr>
+      <tr>
+          <td><strong>User Support</strong></td>
+          <td>Self-service and assisted support options</td>
+          <td>Financial user support model</td>
+      </tr>
+      <tr>
+          <td><strong>Vendor Support</strong></td>
+          <td>Microsoft support plan (recommended: Premier)</td>
+          <td>Financial support SLAs</td>
+      </tr>
+  </tbody>
+</table>
+<h2>Implementation Requirements<span class="hx-absolute -hx-mt-20" id="implementation-requirements"></span>
+    <a href="#implementation-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Project Requirements<span class="hx-absolute -hx-mt-20" id="project-requirements"></span>
+    <a href="#project-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Project Governance</strong></td>
+          <td>Steering committee, clear roles</td>
+          <td>Financial project governance</td>
+      </tr>
+      <tr>
+          <td><strong>Project Management</strong></td>
+          <td>Formal project methodology</td>
+          <td>Financial project management</td>
+      </tr>
+      <tr>
+          <td><strong>Resource Allocation</strong></td>
+          <td>Dedicated implementation team</td>
+          <td>Financial resource requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Timeline Management</strong></td>
+          <td>Realistic implementation timeline</td>
+          <td>Financial implementation constraints</td>
+      </tr>
+      <tr>
+          <td><strong>Risk Management</strong></td>
+          <td>Comprehensive risk assessment</td>
+          <td>Financial implementation risks</td>
+      </tr>
+  </tbody>
+</table>
+<h3>Testing Requirements<span class="hx-absolute -hx-mt-20" id="testing-requirements"></span>
+    <a href="#testing-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Test Environment</strong></td>
+          <td>Representative test environment</td>
+          <td>Financial test environment</td>
+      </tr>
+      <tr>
+          <td><strong>Test Cases</strong></td>
+          <td>Comprehensive test scenarios</td>
+          <td>Financial-specific test cases</td>
+      </tr>
+      <tr>
+          <td><strong>User Acceptance Testing</strong></td>
+          <td>Business stakeholder validation</td>
+          <td>Financial business validation</td>
+      </tr>
+      <tr>
+          <td><strong>Performance Testing</strong></td>
+          <td>Load and performance validation</td>
+          <td>Financial performance requirements</td>
+      </tr>
+      <tr>
+          <td><strong>Security Testing</strong></td>
+          <td>Security validation</td>
+          <td>Financial security testing</td>
+      </tr>
+  </tbody>
+</table>
+<h3>Training Requirements<span class="hx-absolute -hx-mt-20" id="training-requirements"></span>
+    <a href="#training-requirements" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Requirement</th>
+          <th>Financial Services Considerations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Admin Training</strong></td>
+          <td>Technical administration training</td>
+          <td>Financial administration requirements</td>
+      </tr>
+      <tr>
+          <td><strong>User Training</strong></td>
+          <td>End-user awareness and training</td>
+          <td>Financial user training</td>
+      </tr>
+      <tr>
+          <td><strong>Executive Briefing</strong></td>
+          <td>Leadership awareness sessions</td>
+          <td>Financial executive engagement</td>
+      </tr>
+      <tr>
+          <td><strong>Champions Program</strong></td>
+          <td>Power user enablement</td>
+          <td>Financial business champions</td>
+      </tr>
+      <tr>
+          <td><strong>Ongoing Education</strong></td>
+          <td>Continuous lear<response clipped><NOTE>To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with <code>grep -n</code> in order to find the line numbers of what you are looking for.</NOTE></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+
+        </div>
+        <div class="hx-mt-16"></div>
+        <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
+        href="/docs/solution-architecture/maturity-assessment/"
+        title="Maturity Assessment"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
+      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Maturity Assessment</a></div>
+        
+      </main>
+    </article>
+  </div>
+
+      <footer class="hextra-footer hx-bg-gray-100 hx-pb-[env(safe-area-inset-bottom)] dark:hx-bg-neutral-900 print:hx-bg-transparent"><div
+      class="hextra-custom-footer hx-max-w-screen-xl hx-pl-[max(env(safe-area-inset-left),1.5rem)] hx-pr-[max(env(safe-area-inset-right),1.5rem)] hx-text-gray-600 dark:hx-text-gray-400"
+    ></div><div
+        class="hx-max-w-screen-xl hx-mx-auto hx-flex hx-justify-center hx-py-12 hx-pl-[max(env(safe-area-inset-left),1.5rem)] hx-pr-[max(env(safe-area-inset-right),1.5rem)] hx-text-gray-600 dark:hx-text-gray-400 md:hx-justify-start"
+      >
+        <div class="hx-flex hx-w-full hx-flex-col hx-items-center sm:hx-items-start"><div class="hx-font-semibold"><a class="hx-flex hx-text-sm hx-items-center hx-gap-1 hx-text-current" target="_blank" rel="noopener noreferrer" title="Hextra GitHub Homepage" href="https://github.com/imfing/hextra">
+    <span>Powered by Hextra<svg height=1em class="hx-inline-block ltr:hx-ml-1 rtl:hx-mr-1 hx-align-[-2.5px]" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="m 105.50024,22.224647 c -9.59169,-5.537563 -21.40871,-5.537563 -31.000093,0 L 39.054693,42.689119 C 29.463353,48.226675 23.55484,58.460531 23.55484,69.535642 v 40.928918 c 0,11.07542 5.908513,21.3092 15.499853,26.84652 l 35.445453,20.46446 c 9.591313,5.53732 21.408404,5.53732 31.000094,0 l 35.44507,-20.46446 c 9.59131,-5.53732 15.49985,-15.7711 15.49985,-26.84652 V 69.535642 c 0,-11.075111 -5.90854,-21.308967 -15.49985,-26.846523 z M 34.112797,85.737639 c -1.384445,2.397827 -1.384445,5.352099 0,7.749927 l 24.781554,42.922974 c 1.38437,2.39783 3.942853,3.87496 6.711592,3.87496 h 49.563107 c 2.76905,0 5.3273,-1.47713 6.71144,-3.87496 l 24.78194,-42.922974 c 1.38414,-2.397828 1.38414,-5.3521 0,-7.749927 L 121.88049,42.814746 c -1.38414,-2.397828 -3.94239,-3.874964 -6.71144,-3.874964 H 65.605944 c -2.768739,0 -5.327223,1.477059 -6.711592,3.874964 z" style="stroke-width:0.774993" /></svg></span>
+  </a></div><div class="hx-mt-6 hx-text-xs">© 2025 Hextra Project.</div></div>
+      </div></footer>
+    
+    <script defer src="/js/main.js" integrity=""></script>
+<script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
+    <script defer src="/en.search.js" integrity=""></script>
+
+  </body>
+</html>
