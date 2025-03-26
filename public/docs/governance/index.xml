@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microsoft Purview DLP and Sensitivity Labels Implementation Framework – Governance</title>
-    <link>http://localhost:1313/purview/docs/governance/</link>
+    <link>//localhost:1313/docs/governance/</link>
     <description>Recent content in Governance on Microsoft Purview DLP and Sensitivity Labels Implementation Framework</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	  <atom:link href="http://localhost:1313/purview/docs/governance/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="//localhost:1313/docs/governance/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Sensitivity Label Taxonomy</title>
-      <link>http://localhost:1313/purview/docs/governance/sensitivity-label-taxonomy/</link>
+      <link>//localhost:1313/docs/governance/sensitivity-label-taxonomy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/purview/docs/governance/sensitivity-label-taxonomy/</guid>
+      <guid>//localhost:1313/docs/governance/sensitivity-label-taxonomy/</guid>
       <description>
         
         
@@ -1141,10 +1141,10 @@
     
     <item>
       <title>DLP Policy Catalog</title>
-      <link>http://localhost:1313/purview/docs/governance/dlp-policy-catalog/</link>
+      <link>//localhost:1313/docs/governance/dlp-policy-catalog/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/purview/docs/governance/dlp-policy-catalog/</guid>
+      <guid>//localhost:1313/docs/governance/dlp-policy-catalog/</guid>
       <description>
         
         
@@ -2126,10 +2126,10 @@
     
     <item>
       <title>DLP Policy Rules Matrix</title>
-      <link>http://localhost:1313/purview/docs/governance/dlp-policy-rules-matrix/</link>
+      <link>//localhost:1313/docs/governance/dlp-policy-rules-matrix/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/purview/docs/governance/dlp-policy-rules-matrix/</guid>
+      <guid>//localhost:1313/docs/governance/dlp-policy-rules-matrix/</guid>
       <description>
         
         

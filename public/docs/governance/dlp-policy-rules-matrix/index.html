@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en"><head><script src="/purview/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=purview/livereload" data-no-instant defer></script>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="icon shortcut" href="/purview/favicon.ico" sizes="32x32" />
-<link rel="icon" href="/purview/favicon.svg" type="image/svg+xml" />
-<link rel="icon" href="/purview/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
-<link rel="icon" href="/purview/favicon-16x16.png" type="image/png" sizes="16x16" />
-<link rel="icon" href="/purview/favicon-32x32.png" type="image/png" sizes="32x32" />
-<link rel="apple-touch-icon" href="/purview/apple-touch-icon.png" sizes="180x180" />
-<link fetchpriority="low" href="/purview/site.webmanifest" rel="manifest" />
+  <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 <title>DLP Policy Rules Matrix – Microsoft Purview DLP and Sensitivity Labels Implementation Framework</title>
   <meta name="description" content="Microsoft Purview DLP Policy Rules Matrix1. Introduction This document provides a comprehensive matrix of Data Loss Prevention (DLP) policy rules designed for a FTSE 100 financial services organization. The matrix maps specific rules to policy categories, sensitive information types, conditions, actions, and regulatory requirements.
 2. Rule Structure Each DLP rule consists of the following components:
-Rule Name: Unique identifier for the rule Parent Policy: The policy to which the rule belongs Description: Brief description of the rule’s purpose Conditions: Criteria that trigger the rule Actions: Actions taken when the rule is triggered Exceptions: Conditions under which the rule is not applied Regulatory Alignment: Specific regulatory requirements addressed by the rule 3. Regulatory Compliance Rules 3.1 GDPR Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment External-PII-Protection GDPR-Compliance-Policy Prevents sharing PII with external recipients Content contains PII (UK NIN, Drivers License, etc.) AND Recipient is external Block, Notify user, Generate incident report Approved external domains, Encrypted content GDPR Art. 5, 25, 32, 44-50 EU-Resident-Data-Protection GDPR-Compliance-Policy Protects EU resident data Content contains EU resident data AND Recipient is external to EU Block, Notify user, Generate incident report EU adequacy decision countries, SCCs in place GDPR Art. 44-50 Data-Subject-Rights-Support GDPR-Compliance-Policy Identifies content for data subject requests Content contains specific individual’s PII Apply label, Log location None GDPR Art. 15-22 Data-Minimization-Enforcement GDPR-Compliance-Policy Enforces data minimization principle Content contains excessive PII Notify user, Generate incident report Approved business processes GDPR Art. 5(1)(c) Breach-Notification-Support GDPR-Compliance-Policy Supports breach notification requirements High volume of PII accessed/shared Generate high-priority incident report None GDPR Art. 33-34 3.2 PCI-DSS Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Block-High-Volume-PCI PCI-DSS-Compliance-Policy Blocks content with high volume of payment card data Content contains ≥10 credit card numbers Block, Notify user, Generate incident report None PCI-DSS Req. 3.4, 4.1, 4.2 Encrypt-Low-Volume-PCI PCI-DSS-Compliance-Policy Encrypts content with low volume of payment card data Content contains 1-9 credit card numbers Encrypt, Notify user, Generate incident report Already encrypted content PCI-DSS Req. 3.4, 4.1, 4.2 Prevent-Unencrypted-Storage PCI-DSS-Compliance-Policy Prevents unencrypted storage of PCI data Content contains credit card data AND Location is storage Block, Notify user, Generate incident report Encrypted storage PCI-DSS Req. 3.4 Block-CVV-Storage PCI-DSS-Compliance-Policy Prevents storage of CVV data Content contains CVV/CVC codes Block, Notify user, Generate incident report None PCI-DSS Req. 3.2 Restrict-PCI-Access PCI-DSS-Compliance-Policy Restricts access to PCI data Content contains credit card data AND User not in PCI-Authorized group Block access, Notify user, Generate incident report None PCI-DSS Req. 7.1, 7.2 3.3 FCA Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Trading-Information-Protection FCA-Compliance-Policy Protects trading information Content contains trading account references OR trading terms Block external sharing, Encrypt, Notify user Approved regulatory recipients FCA Principles 3, 11 Client-Financial-Data-Protection FCA-Compliance-Policy Protects client financial data Content contains client financial data Block external sharing, Encrypt, Notify user Approved client communication FCA COBS 4, 9 Market-Sensitive-Information FCA-Compliance-Policy Protects market-sensitive information Content contains market analysis, trading strategies Block external sharing, Encrypt, Notify user Approved regulatory reporting FCA MAR, SYSC Financial-Promotion-Control FCA-Compliance-Policy Controls financial promotions Content contains promotional language AND financial products Notify compliance, Generate incident report Approved marketing materials FCA COBS 4 Record-Keeping-Enforcement FCA-Compliance-Policy Enforces record-keeping requirements Attempts to delete/modify regulated communications Block, Notify user, Generate incident report Outside retention period FCA SYSC 9 3.4 AML Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment SAR-Protection AML-Compliance-Policy Protects Suspicious Activity Reports Content contains SAR terms/templates Block sharing, Encrypt, Notify user AML team members MLR 2017, POCA 2002 AML-Investigation-Protection AML-Compliance-Policy Protects AML investigation data Content contains AML investigation terms Block sharing, Encrypt, Notify user AML team members MLR 2017, POCA 2002 Tipping-Off-Prevention AML-Compliance-Policy Prevents tipping off Content contains SAR terms AND Recipient is subject Block, Notify MLRO, Generate incident report None POCA 2002 s.333A High-Risk-Transaction-Monitoring AML-Compliance-Policy Monitors high-risk transaction documentation Content contains high-risk transaction indicators Notify AML team, Generate incident report None MLR 2017 Reg. 28 KYC-Documentation-Protection AML-Compliance-Policy Protects KYC documentation Content contains KYC documentation Encrypt, Restrict access, Notify user Onboarding team MLR 2017 Reg. 28 4. Data Protection Rules 4.1 PII Protection Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment PII-External-Sharing PII-Protection-Policy Controls external sharing of PII Content contains PII AND Recipient is external Block/Encrypt, Notify user, Generate incident report Approved external sharing GDPR, DPA 2018 PII-Encryption PII-Protection-Policy Enforces encryption of PII Content contains PII Apply encryption, Apply label HR team, Compliance team GDPR Art. 32 PII-Volume-Detection PII-Protection-Policy Detects high volumes of PII Content contains ≥10 instances of PII Notify user, Generate incident report HR approved processes GDPR Art. 5, 32 PII-Unauthorized-Access PII-Protection-Policy Prevents unauthorized access to PII Content contains PII AND User not authorized Block access, Notify user, Generate incident report None GDPR Art. 5, 32 PII-Retention-Enforcement PII-Protection-Policy Enforces PII retention policies Content contains PII AND Age &gt; retention period Notify user, Generate incident report Legal hold data GDPR Art. 5(1)(e) 4.2 Financial Data Protection Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Financial-Data-External-Sharing Financial-Data-Protection-Policy Controls external sharing of financial data Content contains financial data AND Recipient is external Block/Encrypt, Notify user, Generate incident report Approved external sharing FCA Principles Financial-Data-Encryption Financial-Data-Protection-Policy Enforces encryption of financial data Content contains financial data Apply encryption, Apply label Financial team FCA Principles Financial-Statement-Protection Financial-Data-Protection-Policy Protects financial statements Content contains financial statement terms Block external sharing, Encrypt, Notify user Approved external sharing FCA Principles, Companies Act Treasury-Data-Protection Financial-Data-Protection-Policy Protects treasury data Content contains treasury data Block external sharing, Encrypt, Notify user Treasury team FCA Principles Investment-Data-Protection Financial-Data-Protection-Policy Protects investment data Content contains investment data Block external sharing, Encrypt, Notify user Investment team FCA Principles 4.3 Intellectual Property Protection Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment IP-External-Sharing IP-Protection-Policy Controls external sharing of IP Content contains IP markers AND Recipient is external Block, Notify user, Generate incident report Approved external sharing Trade Secrets Regulations IP-Classification IP-Protection-Policy Enforces classification of IP Content contains IP indicators Apply label, Notify user Legal team Internal policy Algorithm-Protection IP-Protection-Policy Protects proprietary algorithms Content contains algorithm code/documentation Block external sharing, Encrypt, Notify user R&amp;D team Trade Secrets Regulations Product-Development-Protection IP-Protection-Policy Protects product development information Content contains product development terms Block external sharing, Encrypt, Notify user Product team Trade Secrets Regulations Trading-Strategy-Protection IP-Protection-Policy Protects trading strategies Content contains trading strategy terms Block external sharing, Encrypt, Notify user Trading team Trade Secrets Regulations 5. Business Process Rules 5.1 Client Onboarding Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Client-Data-Protection Client-Onboarding-Policy Protects client onboarding data Content contains client personal data Encrypt, Notify user Onboarding team GDPR, FCA COBS KYC-Information-Protection Client-Onboarding-Policy Protects KYC information Content contains KYC documentation Encrypt, Restrict access Onboarding team, Compliance MLR 2017 Due-Diligence-Protection Client-Onboarding-Policy Protects due diligence reports Content contains due diligence terms Encrypt, Restrict access Onboarding team, Compliance MLR 2017 Client-Agreement-Protection Client-Onboarding-Policy Protects client agreements Content contains agreement terms Encrypt, Apply label Client services team FCA COBS Prospect-Information-Protection Client-Onboarding-Policy Protects prospect information Content contains prospect data Encrypt, Apply label Sales team GDPR, FCA COBS 5.2 Trading Operations Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Trading-Position-Protection Trading-Operations-Policy Protects trading position information Content contains trading position data Block external sharing, Encrypt Trading team FCA MAR Investment-Strategy-Protection Trading-Operations-Policy Protects investment strategies Content contains investment strategy terms Block external sharing, Encrypt Investment team FCA MAR Market-Analysis-Protection Trading-Operations-Policy Protects market analysis Content contains market analysis terms Block external sharing, Encrypt Research team FCA MAR Trade-Confirmation-Protection Trading-Operations-Policy Protects trade confirmations Content contains trade confirmation terms Encrypt, Apply label Trading operations FCA COBS Trading-Limit-Protection Trading-Operations-Policy Protects trading limit information Content contains trading limit terms Block external sharing, Encrypt Risk management team FCA SYSC 5.3 Financial Reporting Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Financial-Statement-Protection Financial-Reporting-Policy Protects financial statements Content contains financial statement terms Block external sharing, Encrypt Finance team FCA, Companies Act Earnings-Report-Protection Financial-Reporting-Policy Protects earnings reports Content contains earnings report terms Block external sharing, Encrypt Finance team FCA, Companies Act Profit-Forecast-Protection Financial-Reporting-Policy Protects profit forecasts Content contains profit forecast terms Block external sharing, Encrypt Finance team, Executive team FCA, Companies Act Audit-Report-Protection Financial-Reporting-Policy Protects audit reports Content contains audit report terms Block external sharing, Encrypt Finance team, Audit committee FCA, Companies Act Regulatory-Filing-Protection Financial-Reporting-Policy Protects regulatory filings Content contains regulatory filing terms Block external sharing, Encrypt Finance team, Compliance team FCA, Companies Act 6. Location-Specific Rules 6.1 Email Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment External-Email-Protection Email-Protection-Policy Protects sensitive information in external emails Content contains sensitive information AND Recipient is external Block/Encrypt, Notify user Approved external recipients Multiple regulations Attachment-Protection Email-Protection-Policy Protects sensitive attachments Attachment contains sensitive information Encrypt attachment, Notify user Already encrypted attachments Multiple regulations Large-Volume-Detection Email-Protection-Policy Detects large volumes of sensitive information Email contains ≥10 instances of sensitive information Block, Notify user, Generate incident report Approved bulk transfers Multiple regulations Distribution-List-Protection Email-Protection-Policy Prevents sensitive information sent to large distribution lists Content contains sensitive information AND Recipient count ≥10 Notify user, Generate incident report Approved distribution lists Multiple regulations Auto-Forward-Prevention Email-Protection-Policy Prevents auto-forwarding of sensitive information Auto-forward rule AND Content contains sensitive information Block rule, Notify user Approved auto-forward rules Multiple regulations 6.2 Endpoint Rules | Rule Name | Parent Policy | Description | Conditions | Actions | Exceptions | Regulatory Alignment | |———–|—————|————-|————|———|————|—————To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with grep -n in order to find the line numbers of what you are looking for." /><link rel="canonical" href="http://localhost:1313/purview/docs/governance/dlp-policy-rules-matrix/" itemprop="url" />
+Rule Name: Unique identifier for the rule Parent Policy: The policy to which the rule belongs Description: Brief description of the rule’s purpose Conditions: Criteria that trigger the rule Actions: Actions taken when the rule is triggered Exceptions: Conditions under which the rule is not applied Regulatory Alignment: Specific regulatory requirements addressed by the rule 3. Regulatory Compliance Rules 3.1 GDPR Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment External-PII-Protection GDPR-Compliance-Policy Prevents sharing PII with external recipients Content contains PII (UK NIN, Drivers License, etc.) AND Recipient is external Block, Notify user, Generate incident report Approved external domains, Encrypted content GDPR Art. 5, 25, 32, 44-50 EU-Resident-Data-Protection GDPR-Compliance-Policy Protects EU resident data Content contains EU resident data AND Recipient is external to EU Block, Notify user, Generate incident report EU adequacy decision countries, SCCs in place GDPR Art. 44-50 Data-Subject-Rights-Support GDPR-Compliance-Policy Identifies content for data subject requests Content contains specific individual’s PII Apply label, Log location None GDPR Art. 15-22 Data-Minimization-Enforcement GDPR-Compliance-Policy Enforces data minimization principle Content contains excessive PII Notify user, Generate incident report Approved business processes GDPR Art. 5(1)(c) Breach-Notification-Support GDPR-Compliance-Policy Supports breach notification requirements High volume of PII accessed/shared Generate high-priority incident report None GDPR Art. 33-34 3.2 PCI-DSS Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Block-High-Volume-PCI PCI-DSS-Compliance-Policy Blocks content with high volume of payment card data Content contains ≥10 credit card numbers Block, Notify user, Generate incident report None PCI-DSS Req. 3.4, 4.1, 4.2 Encrypt-Low-Volume-PCI PCI-DSS-Compliance-Policy Encrypts content with low volume of payment card data Content contains 1-9 credit card numbers Encrypt, Notify user, Generate incident report Already encrypted content PCI-DSS Req. 3.4, 4.1, 4.2 Prevent-Unencrypted-Storage PCI-DSS-Compliance-Policy Prevents unencrypted storage of PCI data Content contains credit card data AND Location is storage Block, Notify user, Generate incident report Encrypted storage PCI-DSS Req. 3.4 Block-CVV-Storage PCI-DSS-Compliance-Policy Prevents storage of CVV data Content contains CVV/CVC codes Block, Notify user, Generate incident report None PCI-DSS Req. 3.2 Restrict-PCI-Access PCI-DSS-Compliance-Policy Restricts access to PCI data Content contains credit card data AND User not in PCI-Authorized group Block access, Notify user, Generate incident report None PCI-DSS Req. 7.1, 7.2 3.3 FCA Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Trading-Information-Protection FCA-Compliance-Policy Protects trading information Content contains trading account references OR trading terms Block external sharing, Encrypt, Notify user Approved regulatory recipients FCA Principles 3, 11 Client-Financial-Data-Protection FCA-Compliance-Policy Protects client financial data Content contains client financial data Block external sharing, Encrypt, Notify user Approved client communication FCA COBS 4, 9 Market-Sensitive-Information FCA-Compliance-Policy Protects market-sensitive information Content contains market analysis, trading strategies Block external sharing, Encrypt, Notify user Approved regulatory reporting FCA MAR, SYSC Financial-Promotion-Control FCA-Compliance-Policy Controls financial promotions Content contains promotional language AND financial products Notify compliance, Generate incident report Approved marketing materials FCA COBS 4 Record-Keeping-Enforcement FCA-Compliance-Policy Enforces record-keeping requirements Attempts to delete/modify regulated communications Block, Notify user, Generate incident report Outside retention period FCA SYSC 9 3.4 AML Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment SAR-Protection AML-Compliance-Policy Protects Suspicious Activity Reports Content contains SAR terms/templates Block sharing, Encrypt, Notify user AML team members MLR 2017, POCA 2002 AML-Investigation-Protection AML-Compliance-Policy Protects AML investigation data Content contains AML investigation terms Block sharing, Encrypt, Notify user AML team members MLR 2017, POCA 2002 Tipping-Off-Prevention AML-Compliance-Policy Prevents tipping off Content contains SAR terms AND Recipient is subject Block, Notify MLRO, Generate incident report None POCA 2002 s.333A High-Risk-Transaction-Monitoring AML-Compliance-Policy Monitors high-risk transaction documentation Content contains high-risk transaction indicators Notify AML team, Generate incident report None MLR 2017 Reg. 28 KYC-Documentation-Protection AML-Compliance-Policy Protects KYC documentation Content contains KYC documentation Encrypt, Restrict access, Notify user Onboarding team MLR 2017 Reg. 28 4. Data Protection Rules 4.1 PII Protection Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment PII-External-Sharing PII-Protection-Policy Controls external sharing of PII Content contains PII AND Recipient is external Block/Encrypt, Notify user, Generate incident report Approved external sharing GDPR, DPA 2018 PII-Encryption PII-Protection-Policy Enforces encryption of PII Content contains PII Apply encryption, Apply label HR team, Compliance team GDPR Art. 32 PII-Volume-Detection PII-Protection-Policy Detects high volumes of PII Content contains ≥10 instances of PII Notify user, Generate incident report HR approved processes GDPR Art. 5, 32 PII-Unauthorized-Access PII-Protection-Policy Prevents unauthorized access to PII Content contains PII AND User not authorized Block access, Notify user, Generate incident report None GDPR Art. 5, 32 PII-Retention-Enforcement PII-Protection-Policy Enforces PII retention policies Content contains PII AND Age &gt; retention period Notify user, Generate incident report Legal hold data GDPR Art. 5(1)(e) 4.2 Financial Data Protection Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Financial-Data-External-Sharing Financial-Data-Protection-Policy Controls external sharing of financial data Content contains financial data AND Recipient is external Block/Encrypt, Notify user, Generate incident report Approved external sharing FCA Principles Financial-Data-Encryption Financial-Data-Protection-Policy Enforces encryption of financial data Content contains financial data Apply encryption, Apply label Financial team FCA Principles Financial-Statement-Protection Financial-Data-Protection-Policy Protects financial statements Content contains financial statement terms Block external sharing, Encrypt, Notify user Approved external sharing FCA Principles, Companies Act Treasury-Data-Protection Financial-Data-Protection-Policy Protects treasury data Content contains treasury data Block external sharing, Encrypt, Notify user Treasury team FCA Principles Investment-Data-Protection Financial-Data-Protection-Policy Protects investment data Content contains investment data Block external sharing, Encrypt, Notify user Investment team FCA Principles 4.3 Intellectual Property Protection Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment IP-External-Sharing IP-Protection-Policy Controls external sharing of IP Content contains IP markers AND Recipient is external Block, Notify user, Generate incident report Approved external sharing Trade Secrets Regulations IP-Classification IP-Protection-Policy Enforces classification of IP Content contains IP indicators Apply label, Notify user Legal team Internal policy Algorithm-Protection IP-Protection-Policy Protects proprietary algorithms Content contains algorithm code/documentation Block external sharing, Encrypt, Notify user R&amp;D team Trade Secrets Regulations Product-Development-Protection IP-Protection-Policy Protects product development information Content contains product development terms Block external sharing, Encrypt, Notify user Product team Trade Secrets Regulations Trading-Strategy-Protection IP-Protection-Policy Protects trading strategies Content contains trading strategy terms Block external sharing, Encrypt, Notify user Trading team Trade Secrets Regulations 5. Business Process Rules 5.1 Client Onboarding Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Client-Data-Protection Client-Onboarding-Policy Protects client onboarding data Content contains client personal data Encrypt, Notify user Onboarding team GDPR, FCA COBS KYC-Information-Protection Client-Onboarding-Policy Protects KYC information Content contains KYC documentation Encrypt, Restrict access Onboarding team, Compliance MLR 2017 Due-Diligence-Protection Client-Onboarding-Policy Protects due diligence reports Content contains due diligence terms Encrypt, Restrict access Onboarding team, Compliance MLR 2017 Client-Agreement-Protection Client-Onboarding-Policy Protects client agreements Content contains agreement terms Encrypt, Apply label Client services team FCA COBS Prospect-Information-Protection Client-Onboarding-Policy Protects prospect information Content contains prospect data Encrypt, Apply label Sales team GDPR, FCA COBS 5.2 Trading Operations Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Trading-Position-Protection Trading-Operations-Policy Protects trading position information Content contains trading position data Block external sharing, Encrypt Trading team FCA MAR Investment-Strategy-Protection Trading-Operations-Policy Protects investment strategies Content contains investment strategy terms Block external sharing, Encrypt Investment team FCA MAR Market-Analysis-Protection Trading-Operations-Policy Protects market analysis Content contains market analysis terms Block external sharing, Encrypt Research team FCA MAR Trade-Confirmation-Protection Trading-Operations-Policy Protects trade confirmations Content contains trade confirmation terms Encrypt, Apply label Trading operations FCA COBS Trading-Limit-Protection Trading-Operations-Policy Protects trading limit information Content contains trading limit terms Block external sharing, Encrypt Risk management team FCA SYSC 5.3 Financial Reporting Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Financial-Statement-Protection Financial-Reporting-Policy Protects financial statements Content contains financial statement terms Block external sharing, Encrypt Finance team FCA, Companies Act Earnings-Report-Protection Financial-Reporting-Policy Protects earnings reports Content contains earnings report terms Block external sharing, Encrypt Finance team FCA, Companies Act Profit-Forecast-Protection Financial-Reporting-Policy Protects profit forecasts Content contains profit forecast terms Block external sharing, Encrypt Finance team, Executive team FCA, Companies Act Audit-Report-Protection Financial-Reporting-Policy Protects audit reports Content contains audit report terms Block external sharing, Encrypt Finance team, Audit committee FCA, Companies Act Regulatory-Filing-Protection Financial-Reporting-Policy Protects regulatory filings Content contains regulatory filing terms Block external sharing, Encrypt Finance team, Compliance team FCA, Companies Act 6. Location-Specific Rules 6.1 Email Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment External-Email-Protection Email-Protection-Policy Protects sensitive information in external emails Content contains sensitive information AND Recipient is external Block/Encrypt, Notify user Approved external recipients Multiple regulations Attachment-Protection Email-Protection-Policy Protects sensitive attachments Attachment contains sensitive information Encrypt attachment, Notify user Already encrypted attachments Multiple regulations Large-Volume-Detection Email-Protection-Policy Detects large volumes of sensitive information Email contains ≥10 instances of sensitive information Block, Notify user, Generate incident report Approved bulk transfers Multiple regulations Distribution-List-Protection Email-Protection-Policy Prevents sensitive information sent to large distribution lists Content contains sensitive information AND Recipient count ≥10 Notify user, Generate incident report Approved distribution lists Multiple regulations Auto-Forward-Prevention Email-Protection-Policy Prevents auto-forwarding of sensitive information Auto-forward rule AND Content contains sensitive information Block rule, Notify user Approved auto-forward rules Multiple regulations 6.2 Endpoint Rules | Rule Name | Parent Policy | Description | Conditions | Actions | Exceptions | Regulatory Alignment | |———–|—————|————-|————|———|————|—————To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with grep -n in order to find the line numbers of what you are looking for." /><link rel="canonical" href="//localhost:1313/docs/governance/dlp-policy-rules-matrix/" itemprop="url" />
 
 <meta property="og:title" content="DLP Policy Rules Matrix" />
 <meta property="og:description" content="Microsoft Purview DLP Policy Rules Matrix1. Introduction
@@ -708,7 +708,7 @@ Regulatory Alignment: Specific regulatory requirements addressed by the rule
     | Rule Name | Parent Policy | Description | Conditions | Actions | Exceptions | Regulatory Alignment |
 |&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;|&mdash;&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;|&mdash;&mdash;&mdash;|&mdash;&mdash;&mdash;&mdash;|&mdash;&mdash;&mdash;&mdash;&mdash;To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with grep -n in order to find the line numbers of what you are looking for." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/purview/docs/governance/dlp-policy-rules-matrix/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="//localhost:1313/docs/governance/dlp-policy-rules-matrix/" /><meta property="article:section" content="docs" />
 
 
 
@@ -723,11 +723,11 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
 2. Rule Structure Each DLP rule consists of the following components:
 Rule Name: Unique identifier for the rule Parent Policy: The policy to which the rule belongs Description: Brief description of the rule’s purpose Conditions: Criteria that trigger the rule Actions: Actions taken when the rule is triggered Exceptions: Conditions under which the rule is not applied Regulatory Alignment: Specific regulatory requirements addressed by the rule 3. Regulatory Compliance Rules 3.1 GDPR Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment External-PII-Protection GDPR-Compliance-Policy Prevents sharing PII with external recipients Content contains PII (UK NIN, Drivers License, etc.) AND Recipient is external Block, Notify user, Generate incident report Approved external domains, Encrypted content GDPR Art. 5, 25, 32, 44-50 EU-Resident-Data-Protection GDPR-Compliance-Policy Protects EU resident data Content contains EU resident data AND Recipient is external to EU Block, Notify user, Generate incident report EU adequacy decision countries, SCCs in place GDPR Art. 44-50 Data-Subject-Rights-Support GDPR-Compliance-Policy Identifies content for data subject requests Content contains specific individual’s PII Apply label, Log location None GDPR Art. 15-22 Data-Minimization-Enforcement GDPR-Compliance-Policy Enforces data minimization principle Content contains excessive PII Notify user, Generate incident report Approved business processes GDPR Art. 5(1)(c) Breach-Notification-Support GDPR-Compliance-Policy Supports breach notification requirements High volume of PII accessed/shared Generate high-priority incident report None GDPR Art. 33-34 3.2 PCI-DSS Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Block-High-Volume-PCI PCI-DSS-Compliance-Policy Blocks content with high volume of payment card data Content contains ≥10 credit card numbers Block, Notify user, Generate incident report None PCI-DSS Req. 3.4, 4.1, 4.2 Encrypt-Low-Volume-PCI PCI-DSS-Compliance-Policy Encrypts content with low volume of payment card data Content contains 1-9 credit card numbers Encrypt, Notify user, Generate incident report Already encrypted content PCI-DSS Req. 3.4, 4.1, 4.2 Prevent-Unencrypted-Storage PCI-DSS-Compliance-Policy Prevents unencrypted storage of PCI data Content contains credit card data AND Location is storage Block, Notify user, Generate incident report Encrypted storage PCI-DSS Req. 3.4 Block-CVV-Storage PCI-DSS-Compliance-Policy Prevents storage of CVV data Content contains CVV/CVC codes Block, Notify user, Generate incident report None PCI-DSS Req. 3.2 Restrict-PCI-Access PCI-DSS-Compliance-Policy Restricts access to PCI data Content contains credit card data AND User not in PCI-Authorized group Block access, Notify user, Generate incident report None PCI-DSS Req. 7.1, 7.2 3.3 FCA Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Trading-Information-Protection FCA-Compliance-Policy Protects trading information Content contains trading account references OR trading terms Block external sharing, Encrypt, Notify user Approved regulatory recipients FCA Principles 3, 11 Client-Financial-Data-Protection FCA-Compliance-Policy Protects client financial data Content contains client financial data Block external sharing, Encrypt, Notify user Approved client communication FCA COBS 4, 9 Market-Sensitive-Information FCA-Compliance-Policy Protects market-sensitive information Content contains market analysis, trading strategies Block external sharing, Encrypt, Notify user Approved regulatory reporting FCA MAR, SYSC Financial-Promotion-Control FCA-Compliance-Policy Controls financial promotions Content contains promotional language AND financial products Notify compliance, Generate incident report Approved marketing materials FCA COBS 4 Record-Keeping-Enforcement FCA-Compliance-Policy Enforces record-keeping requirements Attempts to delete/modify regulated communications Block, Notify user, Generate incident report Outside retention period FCA SYSC 9 3.4 AML Compliance Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment SAR-Protection AML-Compliance-Policy Protects Suspicious Activity Reports Content contains SAR terms/templates Block sharing, Encrypt, Notify user AML team members MLR 2017, POCA 2002 AML-Investigation-Protection AML-Compliance-Policy Protects AML investigation data Content contains AML investigation terms Block sharing, Encrypt, Notify user AML team members MLR 2017, POCA 2002 Tipping-Off-Prevention AML-Compliance-Policy Prevents tipping off Content contains SAR terms AND Recipient is subject Block, Notify MLRO, Generate incident report None POCA 2002 s.333A High-Risk-Transaction-Monitoring AML-Compliance-Policy Monitors high-risk transaction documentation Content contains high-risk transaction indicators Notify AML team, Generate incident report None MLR 2017 Reg. 28 KYC-Documentation-Protection AML-Compliance-Policy Protects KYC documentation Content contains KYC documentation Encrypt, Restrict access, Notify user Onboarding team MLR 2017 Reg. 28 4. Data Protection Rules 4.1 PII Protection Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment PII-External-Sharing PII-Protection-Policy Controls external sharing of PII Content contains PII AND Recipient is external Block/Encrypt, Notify user, Generate incident report Approved external sharing GDPR, DPA 2018 PII-Encryption PII-Protection-Policy Enforces encryption of PII Content contains PII Apply encryption, Apply label HR team, Compliance team GDPR Art. 32 PII-Volume-Detection PII-Protection-Policy Detects high volumes of PII Content contains ≥10 instances of PII Notify user, Generate incident report HR approved processes GDPR Art. 5, 32 PII-Unauthorized-Access PII-Protection-Policy Prevents unauthorized access to PII Content contains PII AND User not authorized Block access, Notify user, Generate incident report None GDPR Art. 5, 32 PII-Retention-Enforcement PII-Protection-Policy Enforces PII retention policies Content contains PII AND Age &gt; retention period Notify user, Generate incident report Legal hold data GDPR Art. 5(1)(e) 4.2 Financial Data Protection Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Financial-Data-External-Sharing Financial-Data-Protection-Policy Controls external sharing of financial data Content contains financial data AND Recipient is external Block/Encrypt, Notify user, Generate incident report Approved external sharing FCA Principles Financial-Data-Encryption Financial-Data-Protection-Policy Enforces encryption of financial data Content contains financial data Apply encryption, Apply label Financial team FCA Principles Financial-Statement-Protection Financial-Data-Protection-Policy Protects financial statements Content contains financial statement terms Block external sharing, Encrypt, Notify user Approved external sharing FCA Principles, Companies Act Treasury-Data-Protection Financial-Data-Protection-Policy Protects treasury data Content contains treasury data Block external sharing, Encrypt, Notify user Treasury team FCA Principles Investment-Data-Protection Financial-Data-Protection-Policy Protects investment data Content contains investment data Block external sharing, Encrypt, Notify user Investment team FCA Principles 4.3 Intellectual Property Protection Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment IP-External-Sharing IP-Protection-Policy Controls external sharing of IP Content contains IP markers AND Recipient is external Block, Notify user, Generate incident report Approved external sharing Trade Secrets Regulations IP-Classification IP-Protection-Policy Enforces classification of IP Content contains IP indicators Apply label, Notify user Legal team Internal policy Algorithm-Protection IP-Protection-Policy Protects proprietary algorithms Content contains algorithm code/documentation Block external sharing, Encrypt, Notify user R&amp;D team Trade Secrets Regulations Product-Development-Protection IP-Protection-Policy Protects product development information Content contains product development terms Block external sharing, Encrypt, Notify user Product team Trade Secrets Regulations Trading-Strategy-Protection IP-Protection-Policy Protects trading strategies Content contains trading strategy terms Block external sharing, Encrypt, Notify user Trading team Trade Secrets Regulations 5. Business Process Rules 5.1 Client Onboarding Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Client-Data-Protection Client-Onboarding-Policy Protects client onboarding data Content contains client personal data Encrypt, Notify user Onboarding team GDPR, FCA COBS KYC-Information-Protection Client-Onboarding-Policy Protects KYC information Content contains KYC documentation Encrypt, Restrict access Onboarding team, Compliance MLR 2017 Due-Diligence-Protection Client-Onboarding-Policy Protects due diligence reports Content contains due diligence terms Encrypt, Restrict access Onboarding team, Compliance MLR 2017 Client-Agreement-Protection Client-Onboarding-Policy Protects client agreements Content contains agreement terms Encrypt, Apply label Client services team FCA COBS Prospect-Information-Protection Client-Onboarding-Policy Protects prospect information Content contains prospect data Encrypt, Apply label Sales team GDPR, FCA COBS 5.2 Trading Operations Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Trading-Position-Protection Trading-Operations-Policy Protects trading position information Content contains trading position data Block external sharing, Encrypt Trading team FCA MAR Investment-Strategy-Protection Trading-Operations-Policy Protects investment strategies Content contains investment strategy terms Block external sharing, Encrypt Investment team FCA MAR Market-Analysis-Protection Trading-Operations-Policy Protects market analysis Content contains market analysis terms Block external sharing, Encrypt Research team FCA MAR Trade-Confirmation-Protection Trading-Operations-Policy Protects trade confirmations Content contains trade confirmation terms Encrypt, Apply label Trading operations FCA COBS Trading-Limit-Protection Trading-Operations-Policy Protects trading limit information Content contains trading limit terms Block external sharing, Encrypt Risk management team FCA SYSC 5.3 Financial Reporting Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment Financial-Statement-Protection Financial-Reporting-Policy Protects financial statements Content contains financial statement terms Block external sharing, Encrypt Finance team FCA, Companies Act Earnings-Report-Protection Financial-Reporting-Policy Protects earnings reports Content contains earnings report terms Block external sharing, Encrypt Finance team FCA, Companies Act Profit-Forecast-Protection Financial-Reporting-Policy Protects profit forecasts Content contains profit forecast terms Block external sharing, Encrypt Finance team, Executive team FCA, Companies Act Audit-Report-Protection Financial-Reporting-Policy Protects audit reports Content contains audit report terms Block external sharing, Encrypt Finance team, Audit committee FCA, Companies Act Regulatory-Filing-Protection Financial-Reporting-Policy Protects regulatory filings Content contains regulatory filing terms Block external sharing, Encrypt Finance team, Compliance team FCA, Companies Act 6. Location-Specific Rules 6.1 Email Rules Rule Name Parent Policy Description Conditions Actions Exceptions Regulatory Alignment External-Email-Protection Email-Protection-Policy Protects sensitive information in external emails Content contains sensitive information AND Recipient is external Block/Encrypt, Notify user Approved external recipients Multiple regulations Attachment-Protection Email-Protection-Policy Protects sensitive attachments Attachment contains sensitive information Encrypt attachment, Notify user Already encrypted attachments Multiple regulations Large-Volume-Detection Email-Protection-Policy Detects large volumes of sensitive information Email contains ≥10 instances of sensitive information Block, Notify user, Generate incident report Approved bulk transfers Multiple regulations Distribution-List-Protection Email-Protection-Policy Prevents sensitive information sent to large distribution lists Content contains sensitive information AND Recipient count ≥10 Notify user, Generate incident report Approved distribution lists Multiple regulations Auto-Forward-Prevention Email-Protection-Policy Prevents auto-forwarding of sensitive information Auto-forward rule AND Content contains sensitive information Block rule, Notify user Approved auto-forward rules Multiple regulations 6.2 Endpoint Rules | Rule Name | Parent Policy | Description | Conditions | Actions | Exceptions | Regulatory Alignment | |———–|—————|————-|————|———|————|—————To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with grep -n in order to find the line numbers of what you are looking for.">
 
-    <link href="/purview/css/compiled/main.css" rel="stylesheet" />
+    <link href="/css/compiled/main.css" rel="stylesheet" />
 
 
 
-  <link href="/purview/css/custom.css" rel="stylesheet" />
+  <link href="/css/custom.css" rel="stylesheet" />
 
 
   <script>
@@ -759,11 +759,18 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
   <div class="nav-container-blur hx-pointer-events-none hx-absolute hx-z-[-1] hx-h-full hx-w-full hx-bg-white dark:hx-bg-dark hx-shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] contrast-more:hx-shadow-[0_0_0_1px_#000] dark:hx-shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:dark:hx-shadow-[0_0_0_1px_#fff]"></div>
 
   <nav class="hx-mx-auto hx-flex hx-items-center hx-justify-end hx-gap-2 hx-h-16 hx-px-6 hx-max-w-[90rem]">
-    <a class="hx-flex hx-items-center hover:hx-opacity-75 ltr:hx-mr-auto rtl:hx-ml-auto" href="/purview/">
+    <a class="hx-flex hx-items-center hover:hx-opacity-75 ltr:hx-mr-auto rtl:hx-ml-auto" href="/">
         <span class="hx-mr-2 hx-font-extrabold hx-inline hx-select-none" title="Microsoft Purview DLP and Sensitivity Labels Implementation Framework">Microsoft Purview DLP and Sensitivity Labels Implementation Framework</span>
     </a><a
+            title="Home"
+            href="/"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
+          >
+            <span class="hx-text-center">Home</span>
+          </a><a
             title="Docs"
-            href="purview/docs/"
+            href="/docs/"
             
             class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
           >
@@ -809,7 +816,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
           <li class="open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/"
+    href="/docs/"
     
   >Documentation
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -817,7 +824,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/introduction/"
+    href="/docs/introduction/"
     
   >Introduction
     </a>
@@ -825,7 +832,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/"
+    href="/docs/research/"
     
   >Research
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -834,7 +841,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/dlp-capabilities/"
+    href="/docs/research/dlp-capabilities/"
     
   >DLP Capabilities
     </a>
@@ -842,7 +849,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/sensitivity-labels/"
+    href="/docs/research/sensitivity-labels/"
     
   >Sensitivity Labels
     </a>
@@ -850,7 +857,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/regulatory-requirements/"
+    href="/docs/research/regulatory-requirements/"
     
   >Regulatory Requirements
     </a>
@@ -860,7 +867,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/"
+    href="/docs/strategic-design/"
     
   >Strategic Design
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -869,7 +876,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/high-level-architecture/"
+    href="/docs/strategic-design/high-level-architecture/"
     
   >High-Level Architecture
     </a>
@@ -877,7 +884,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/detailed-technical-design/"
+    href="/docs/strategic-design/detailed-technical-design/"
     
   >Detailed Technical Design
     </a>
@@ -887,7 +894,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/"
+    href="/docs/governance/"
     
   >Governance
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -896,7 +903,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/sensitivity-label-taxonomy/"
+    href="/docs/governance/sensitivity-label-taxonomy/"
     
   >Sensitivity Label Taxonomy
     </a>
@@ -904,7 +911,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/dlp-policy-catalog/"
+    href="/docs/governance/dlp-policy-catalog/"
     
   >DLP Policy Catalog
     </a>
@@ -912,7 +919,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
-    href="/purview/docs/governance/dlp-policy-rules-matrix/"
+    href="/docs/governance/dlp-policy-rules-matrix/"
     
   >DLP Policy Rules Matrix
     </a>
@@ -961,7 +968,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/"
+    href="/docs/implementation/"
     
   >Implementation
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -970,7 +977,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/implementation-plan/"
+    href="/docs/implementation/implementation-plan/"
     
   >Implementation Plan
     </a>
@@ -978,7 +985,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/stakeholder-engagement/"
+    href="/docs/implementation/stakeholder-engagement/"
     
   >Stakeholder Engagement
     </a>
@@ -986,7 +993,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/risk-assessment/"
+    href="/docs/implementation/risk-assessment/"
     
   >Risk Assessment
     </a>
@@ -996,7 +1003,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/"
+    href="/docs/enhancements/"
     
   >Enhancements
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -1005,7 +1012,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/user-training-awareness/"
+    href="/docs/enhancements/user-training-awareness/"
     
   >User Training and Awareness
     </a>
@@ -1013,7 +1020,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/implementation-playbooks/"
+    href="/docs/enhancements/implementation-playbooks/"
     
   >Implementation Playbooks
     </a>
@@ -1021,7 +1028,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/cost-benefit-analysis/"
+    href="/docs/enhancements/cost-benefit-analysis/"
     
   >Cost-Benefit Analysis
     </a>
@@ -1029,7 +1036,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/security-ecosystem-integration/"
+    href="/docs/enhancements/security-ecosystem-integration/"
     
   >Security Ecosystem Integration
     </a>
@@ -1037,7 +1044,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/industry-specific-use-cases/"
+    href="/docs/enhancements/industry-specific-use-cases/"
     
   >Industry-Specific Use Cases
     </a>
@@ -1049,7 +1056,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/about/"
+    href="/about/"
     
   >About
     </a></li>
@@ -1060,14 +1067,14 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/introduction/"
+    href="/docs/introduction/"
     
   >Introduction
     </a></li>
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/"
+    href="/docs/research/"
     
   >Research
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -1075,7 +1082,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/dlp-capabilities/"
+    href="/docs/research/dlp-capabilities/"
     
   >DLP Capabilities
     </a>
@@ -1083,7 +1090,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/sensitivity-labels/"
+    href="/docs/research/sensitivity-labels/"
     
   >Sensitivity Labels
     </a>
@@ -1091,7 +1098,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/regulatory-requirements/"
+    href="/docs/research/regulatory-requirements/"
     
   >Regulatory Requirements
     </a>
@@ -1101,7 +1108,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/"
+    href="/docs/strategic-design/"
     
   >Strategic Design
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -1109,7 +1116,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/high-level-architecture/"
+    href="/docs/strategic-design/high-level-architecture/"
     
   >High-Level Architecture
     </a>
@@ -1117,7 +1124,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/detailed-technical-design/"
+    href="/docs/strategic-design/detailed-technical-design/"
     
   >Detailed Technical Design
     </a>
@@ -1127,7 +1134,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
           <li class="open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/"
+    href="/docs/governance/"
     
   >Governance
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -1135,7 +1142,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/sensitivity-label-taxonomy/"
+    href="/docs/governance/sensitivity-label-taxonomy/"
     
   >Sensitivity Label Taxonomy
     </a>
@@ -1143,7 +1150,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/dlp-policy-catalog/"
+    href="/docs/governance/dlp-policy-catalog/"
     
   >DLP Policy Catalog
     </a>
@@ -1151,7 +1158,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
-    href="/purview/docs/governance/dlp-policy-rules-matrix/"
+    href="/docs/governance/dlp-policy-rules-matrix/"
     
   >DLP Policy Rules Matrix
     </a>
@@ -1161,7 +1168,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/"
+    href="/docs/implementation/"
     
   >Implementation
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -1169,7 +1176,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/implementation-plan/"
+    href="/docs/implementation/implementation-plan/"
     
   >Implementation Plan
     </a>
@@ -1177,7 +1184,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/stakeholder-engagement/"
+    href="/docs/implementation/stakeholder-engagement/"
     
   >Stakeholder Engagement
     </a>
@@ -1185,7 +1192,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/risk-assessment/"
+    href="/docs/implementation/risk-assessment/"
     
   >Risk Assessment
     </a>
@@ -1195,7 +1202,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/"
+    href="/docs/enhancements/"
     
   >Enhancements
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -1203,7 +1210,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/user-training-awareness/"
+    href="/docs/enhancements/user-training-awareness/"
     
   >User Training and Awareness
     </a>
@@ -1211,7 +1218,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/implementation-playbooks/"
+    href="/docs/enhancements/implementation-playbooks/"
     
   >Implementation Playbooks
     </a>
@@ -1219,7 +1226,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/cost-benefit-analysis/"
+    href="/docs/enhancements/cost-benefit-analysis/"
     
   >Cost-Benefit Analysis
     </a>
@@ -1227,7 +1234,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/security-ecosystem-integration/"
+    href="/docs/enhancements/security-ecosystem-integration/"
     
   >Security Ecosystem Integration
     </a>
@@ -1235,7 +1242,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/industry-specific-use-cases/"
+    href="/docs/enhancements/industry-specific-use-cases/"
     
   >Industry-Specific Use Cases
     </a>
@@ -1349,10 +1356,10 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         
   <div class="hx-mt-1.5 hx-flex hx-items-center hx-gap-1 hx-overflow-hidden hx-text-sm hx-text-gray-500 dark:hx-text-gray-400 contrast-more:hx-text-current">
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
-          <a href="/purview/docs/">Documentation</a>
+          <a href="/docs/">Documentation</a>
         </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
-          <a href="/purview/docs/governance/">Governance</a>
+          <a href="/docs/governance/">Governance</a>
         </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">DLP Policy Rules Matrix</div>
   </div>
 
@@ -2053,7 +2060,7 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
         </div>
         <div class="hx-mt-16"></div>
         <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
-        href="/purview/docs/governance/dlp-policy-catalog/"
+        href="/docs/governance/dlp-policy-catalog/"
         title="DLP Policy Catalog"
         class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
       ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>DLP Policy Catalog</a></div>
@@ -2072,9 +2079,9 @@ Rule Name: Unique identifier for the rule Parent Policy: The policy to which the
   </a></div><div class="hx-mt-6 hx-text-xs">© 2025 Hextra Project.</div></div>
       </div></footer>
     
-    <script defer src="/purview/js/main.js" integrity=""></script>
-<script defer src="/purview/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
-    <script defer src="/purview/en.search.js" integrity=""></script>
+    <script defer src="/js/main.js" integrity=""></script>
+<script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
+    <script defer src="/en.search.js" integrity=""></script>
 
   </body>
 </html>

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en"><head><script src="/purview/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=purview/livereload" data-no-instant defer></script>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="icon shortcut" href="/purview/favicon.ico" sizes="32x32" />
-<link rel="icon" href="/purview/favicon.svg" type="image/svg+xml" />
-<link rel="icon" href="/purview/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
-<link rel="icon" href="/purview/favicon-16x16.png" type="image/png" sizes="16x16" />
-<link rel="icon" href="/purview/favicon-32x32.png" type="image/png" sizes="32x32" />
-<link rel="apple-touch-icon" href="/purview/apple-touch-icon.png" sizes="180x180" />
-<link fetchpriority="low" href="/purview/site.webmanifest" rel="manifest" />
+  <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 <title>Sensitivity Labels – Microsoft Purview DLP and Sensitivity Labels Implementation Framework</title>
   <meta name="description" content="Microsoft Purview Sensitivity Labels ResearchOverview Microsoft Purview Sensitivity Labels are a key component of Microsoft’s Information Protection solution that allow organizations to classify and protect their data while ensuring user productivity and collaboration capabilities remain unhindered. Sensitivity labels provide a unified approach to data protection across Microsoft 365 services, endpoints, and beyond.
-Core Characteristics 1. Customizable Specific to organization and business needs Create categories for different levels of sensitive content (e.g., Personal, Public, General, Confidential, Highly Confidential) Tailored to match organizational classification taxonomy 2. Clear Text Labels are stored in clear text in metadata for files and emails Third-party apps and services can read the labels and apply their own protective actions Enables interoperability with broader security ecosystem 3. Persistent Labels stay with the content, no matter where it’s saved or stored Stored in metadata for files and emails Organization-unique label identification becomes the basis for applying and enforcing policies Key Capabilities 1. Protection Settings Apply encryption and content markings (headers, footers, watermarks) Restrict what actions specified people can take on content Example: Apply “Confidential” label to encrypt content and apply a “Confidential” watermark 2. SharePoint Protection Extension Configure default sensitivity labels for SharePoint document libraries Extend protection for unencrypted files when downloaded Maintain SharePoint permissions with labeled files 3. Cross-Platform Protection Protect content in Office apps across different platforms and devices Support for Word, Excel, PowerPoint, and Outlook Compatible with Windows, macOS, iOS, and Android 4. Third-Party App Protection Integrate with Microsoft Defender for Cloud Apps Detect, classify, label, and protect content in third-party apps and services Support for services like SalesForce, Box, or DropBox Third-party apps can read sensitivity labels using Microsoft Information Protection SDK 5. eDiscovery Support Identify content for eDiscovery cases Build search queries based on sensitivity labels Include or exclude content based on applied labels 6. Container Protection Protect Teams, Microsoft 365 Groups, SharePoint sites, and Loop workspaces Set privacy settings and external user access Control external sharing and access from unmanaged devices Manage how channels can be shared with other teams 7. Meeting and Chat Protection Label and optionally encrypt meeting invites and responses Enforce Teams-specific options for meetings and chat Protect sensitive communications 8. Power BI Integration Apply and view labels in Power BI Protect data when saved outside the service 9. Microsoft Purview Data Map Integration Apply sensitivity labels to files and schematized data assets Support for SQL, Azure SQL, Azure Synapse, Azure Cosmos DB, and AWS RDS 10. Microsoft 365 Copilot Integration Copilot recognizes and integrates sensitivity labels into user interactions Helps keep labeled data protected during AI interactions Implementation Considerations 1. Label Creation and Configuration Create labels through Microsoft Purview portal or Microsoft Purview compliance portal Configure scope (Files &amp; emails, Groups &amp; sites, Meetings) Define protection settings, content marking, and encryption options Arrange labels in priority order (higher position = higher priority) Support for sublabels to create a hierarchical structure 2. Label Policies Create label policies to make labels available to users Publish labels to specific users or groups Configure policy settings like default labels and mandatory labeling Control whether users can change or remove labels 3. Multilingual Support Configure labels for different languages using PowerShell Specify translations for label names and tooltips Support for Office language identifiers 4. Advanced Settings Additional configuration options available through Security &amp; Compliance PowerShell Special settings for specific scenarios or requirements Support for custom configurations 5. Automatic Labeling Configure auto-labeling policies to automatically apply labels Base labeling on sensitive information types or trainable classifiers Apply labels to content in SharePoint, OneDrive, and Exchange 6. Monitoring and Reporting View label usage and activity through Microsoft Purview portal Generate reports on label application and protection actions Monitor compliance with labeling policies Deployment Best Practices 1. Planning Identify sensitive information types in the organization Define classification taxonomy aligned with business needs Determine protection requirements for each classification level Consider regulatory and compliance requirements 2. Phased Implementation Start with a pilot group to test label functionality Deploy labels in simulation mode before enforcing protection Gradually expand to more users and content Monitor impact and adjust as needed 3. User Education Provide training on label usage and importance Use policy tips to guide users on appropriate labeling Create awareness materials and documentation Ensure users understand the implications of different labels 4. Integration with Broader Security Strategy Align with DLP policies and other security controls Integrate with information governance strategy Consider how labels interact with retention policies Coordinate with eDiscovery and compliance teams 5. Maintenance and Evolution Regularly review and update labels as needs change Monitor label usage and effectiveness Adjust protection settings based on feedback and incidents Stay current with new features and capabilities " /><link rel="canonical" href="http://localhost:1313/purview/docs/research/sensitivity-labels/" itemprop="url" />
+Core Characteristics 1. Customizable Specific to organization and business needs Create categories for different levels of sensitive content (e.g., Personal, Public, General, Confidential, Highly Confidential) Tailored to match organizational classification taxonomy 2. Clear Text Labels are stored in clear text in metadata for files and emails Third-party apps and services can read the labels and apply their own protective actions Enables interoperability with broader security ecosystem 3. Persistent Labels stay with the content, no matter where it’s saved or stored Stored in metadata for files and emails Organization-unique label identification becomes the basis for applying and enforcing policies Key Capabilities 1. Protection Settings Apply encryption and content markings (headers, footers, watermarks) Restrict what actions specified people can take on content Example: Apply “Confidential” label to encrypt content and apply a “Confidential” watermark 2. SharePoint Protection Extension Configure default sensitivity labels for SharePoint document libraries Extend protection for unencrypted files when downloaded Maintain SharePoint permissions with labeled files 3. Cross-Platform Protection Protect content in Office apps across different platforms and devices Support for Word, Excel, PowerPoint, and Outlook Compatible with Windows, macOS, iOS, and Android 4. Third-Party App Protection Integrate with Microsoft Defender for Cloud Apps Detect, classify, label, and protect content in third-party apps and services Support for services like SalesForce, Box, or DropBox Third-party apps can read sensitivity labels using Microsoft Information Protection SDK 5. eDiscovery Support Identify content for eDiscovery cases Build search queries based on sensitivity labels Include or exclude content based on applied labels 6. Container Protection Protect Teams, Microsoft 365 Groups, SharePoint sites, and Loop workspaces Set privacy settings and external user access Control external sharing and access from unmanaged devices Manage how channels can be shared with other teams 7. Meeting and Chat Protection Label and optionally encrypt meeting invites and responses Enforce Teams-specific options for meetings and chat Protect sensitive communications 8. Power BI Integration Apply and view labels in Power BI Protect data when saved outside the service 9. Microsoft Purview Data Map Integration Apply sensitivity labels to files and schematized data assets Support for SQL, Azure SQL, Azure Synapse, Azure Cosmos DB, and AWS RDS 10. Microsoft 365 Copilot Integration Copilot recognizes and integrates sensitivity labels into user interactions Helps keep labeled data protected during AI interactions Implementation Considerations 1. Label Creation and Configuration Create labels through Microsoft Purview portal or Microsoft Purview compliance portal Configure scope (Files &amp; emails, Groups &amp; sites, Meetings) Define protection settings, content marking, and encryption options Arrange labels in priority order (higher position = higher priority) Support for sublabels to create a hierarchical structure 2. Label Policies Create label policies to make labels available to users Publish labels to specific users or groups Configure policy settings like default labels and mandatory labeling Control whether users can change or remove labels 3. Multilingual Support Configure labels for different languages using PowerShell Specify translations for label names and tooltips Support for Office language identifiers 4. Advanced Settings Additional configuration options available through Security &amp; Compliance PowerShell Special settings for specific scenarios or requirements Support for custom configurations 5. Automatic Labeling Configure auto-labeling policies to automatically apply labels Base labeling on sensitive information types or trainable classifiers Apply labels to content in SharePoint, OneDrive, and Exchange 6. Monitoring and Reporting View label usage and activity through Microsoft Purview portal Generate reports on label application and protection actions Monitor compliance with labeling policies Deployment Best Practices 1. Planning Identify sensitive information types in the organization Define classification taxonomy aligned with business needs Determine protection requirements for each classification level Consider regulatory and compliance requirements 2. Phased Implementation Start with a pilot group to test label functionality Deploy labels in simulation mode before enforcing protection Gradually expand to more users and content Monitor impact and adjust as needed 3. User Education Provide training on label usage and importance Use policy tips to guide users on appropriate labeling Create awareness materials and documentation Ensure users understand the implications of different labels 4. Integration with Broader Security Strategy Align with DLP policies and other security controls Integrate with information governance strategy Consider how labels interact with retention policies Coordinate with eDiscovery and compliance teams 5. Maintenance and Evolution Regularly review and update labels as needs change Monitor label usage and effectiveness Adjust protection settings based on feedback and incidents Stay current with new features and capabilities " /><link rel="canonical" href="//localhost:1313/docs/research/sensitivity-labels/" itemprop="url" />
 
 <meta property="og:title" content="Sensitivity Labels" />
 <meta property="og:description" content="Microsoft Purview Sensitivity Labels ResearchOverview
@@ -173,7 +173,7 @@ Adjust protection settings based on feedback and incidents
 Stay current with new features and capabilities
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/purview/docs/research/sensitivity-labels/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="//localhost:1313/docs/research/sensitivity-labels/" /><meta property="article:section" content="docs" />
 
 
 
@@ -186,11 +186,11 @@ Core Characteristics 1. Customizable Specific to organization and business needs
   <meta name="twitter:description" content="Microsoft Purview Sensitivity Labels ResearchOverview Microsoft Purview Sensitivity Labels are a key component of Microsoft’s Information Protection solution that allow organizations to classify and protect their data while ensuring user productivity and collaboration capabilities remain unhindered. Sensitivity labels provide a unified approach to data protection across Microsoft 365 services, endpoints, and beyond.
 Core Characteristics 1. Customizable Specific to organization and business needs Create categories for different levels of sensitive content (e.g., Personal, Public, General, Confidential, Highly Confidential) Tailored to match organizational classification taxonomy 2. Clear Text Labels are stored in clear text in metadata for files and emails Third-party apps and services can read the labels and apply their own protective actions Enables interoperability with broader security ecosystem 3. Persistent Labels stay with the content, no matter where it’s saved or stored Stored in metadata for files and emails Organization-unique label identification becomes the basis for applying and enforcing policies Key Capabilities 1. Protection Settings Apply encryption and content markings (headers, footers, watermarks) Restrict what actions specified people can take on content Example: Apply “Confidential” label to encrypt content and apply a “Confidential” watermark 2. SharePoint Protection Extension Configure default sensitivity labels for SharePoint document libraries Extend protection for unencrypted files when downloaded Maintain SharePoint permissions with labeled files 3. Cross-Platform Protection Protect content in Office apps across different platforms and devices Support for Word, Excel, PowerPoint, and Outlook Compatible with Windows, macOS, iOS, and Android 4. Third-Party App Protection Integrate with Microsoft Defender for Cloud Apps Detect, classify, label, and protect content in third-party apps and services Support for services like SalesForce, Box, or DropBox Third-party apps can read sensitivity labels using Microsoft Information Protection SDK 5. eDiscovery Support Identify content for eDiscovery cases Build search queries based on sensitivity labels Include or exclude content based on applied labels 6. Container Protection Protect Teams, Microsoft 365 Groups, SharePoint sites, and Loop workspaces Set privacy settings and external user access Control external sharing and access from unmanaged devices Manage how channels can be shared with other teams 7. Meeting and Chat Protection Label and optionally encrypt meeting invites and responses Enforce Teams-specific options for meetings and chat Protect sensitive communications 8. Power BI Integration Apply and view labels in Power BI Protect data when saved outside the service 9. Microsoft Purview Data Map Integration Apply sensitivity labels to files and schematized data assets Support for SQL, Azure SQL, Azure Synapse, Azure Cosmos DB, and AWS RDS 10. Microsoft 365 Copilot Integration Copilot recognizes and integrates sensitivity labels into user interactions Helps keep labeled data protected during AI interactions Implementation Considerations 1. Label Creation and Configuration Create labels through Microsoft Purview portal or Microsoft Purview compliance portal Configure scope (Files &amp; emails, Groups &amp; sites, Meetings) Define protection settings, content marking, and encryption options Arrange labels in priority order (higher position = higher priority) Support for sublabels to create a hierarchical structure 2. Label Policies Create label policies to make labels available to users Publish labels to specific users or groups Configure policy settings like default labels and mandatory labeling Control whether users can change or remove labels 3. Multilingual Support Configure labels for different languages using PowerShell Specify translations for label names and tooltips Support for Office language identifiers 4. Advanced Settings Additional configuration options available through Security &amp; Compliance PowerShell Special settings for specific scenarios or requirements Support for custom configurations 5. Automatic Labeling Configure auto-labeling policies to automatically apply labels Base labeling on sensitive information types or trainable classifiers Apply labels to content in SharePoint, OneDrive, and Exchange 6. Monitoring and Reporting View label usage and activity through Microsoft Purview portal Generate reports on label application and protection actions Monitor compliance with labeling policies Deployment Best Practices 1. Planning Identify sensitive information types in the organization Define classification taxonomy aligned with business needs Determine protection requirements for each classification level Consider regulatory and compliance requirements 2. Phased Implementation Start with a pilot group to test label functionality Deploy labels in simulation mode before enforcing protection Gradually expand to more users and content Monitor impact and adjust as needed 3. User Education Provide training on label usage and importance Use policy tips to guide users on appropriate labeling Create awareness materials and documentation Ensure users understand the implications of different labels 4. Integration with Broader Security Strategy Align with DLP policies and other security controls Integrate with information governance strategy Consider how labels interact with retention policies Coordinate with eDiscovery and compliance teams 5. Maintenance and Evolution Regularly review and update labels as needs change Monitor label usage and effectiveness Adjust protection settings based on feedback and incidents Stay current with new features and capabilities">
 
-    <link href="/purview/css/compiled/main.css" rel="stylesheet" />
+    <link href="/css/compiled/main.css" rel="stylesheet" />
 
 
 
-  <link href="/purview/css/custom.css" rel="stylesheet" />
+  <link href="/css/custom.css" rel="stylesheet" />
 
 
   <script>
@@ -222,11 +222,18 @@ Core Characteristics 1. Customizable Specific to organization and business needs
   <div class="nav-container-blur hx-pointer-events-none hx-absolute hx-z-[-1] hx-h-full hx-w-full hx-bg-white dark:hx-bg-dark hx-shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] contrast-more:hx-shadow-[0_0_0_1px_#000] dark:hx-shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:dark:hx-shadow-[0_0_0_1px_#fff]"></div>
 
   <nav class="hx-mx-auto hx-flex hx-items-center hx-justify-end hx-gap-2 hx-h-16 hx-px-6 hx-max-w-[90rem]">
-    <a class="hx-flex hx-items-center hover:hx-opacity-75 ltr:hx-mr-auto rtl:hx-ml-auto" href="/purview/">
+    <a class="hx-flex hx-items-center hover:hx-opacity-75 ltr:hx-mr-auto rtl:hx-ml-auto" href="/">
         <span class="hx-mr-2 hx-font-extrabold hx-inline hx-select-none" title="Microsoft Purview DLP and Sensitivity Labels Implementation Framework">Microsoft Purview DLP and Sensitivity Labels Implementation Framework</span>
     </a><a
+            title="Home"
+            href="/"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
+          >
+            <span class="hx-text-center">Home</span>
+          </a><a
             title="Docs"
-            href="purview/docs/"
+            href="/docs/"
             
             class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
           >
@@ -272,7 +279,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
           <li class="open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/"
+    href="/docs/"
     
   >Documentation
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -280,7 +287,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/introduction/"
+    href="/docs/introduction/"
     
   >Introduction
     </a>
@@ -288,7 +295,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/"
+    href="/docs/research/"
     
   >Research
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -297,7 +304,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/dlp-capabilities/"
+    href="/docs/research/dlp-capabilities/"
     
   >DLP Capabilities
     </a>
@@ -305,7 +312,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
-    href="/purview/docs/research/sensitivity-labels/"
+    href="/docs/research/sensitivity-labels/"
     
   >Sensitivity Labels
     </a>
@@ -346,7 +353,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/regulatory-requirements/"
+    href="/docs/research/regulatory-requirements/"
     
   >Regulatory Requirements
     </a>
@@ -356,7 +363,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/"
+    href="/docs/strategic-design/"
     
   >Strategic Design
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -365,7 +372,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/high-level-architecture/"
+    href="/docs/strategic-design/high-level-architecture/"
     
   >High-Level Architecture
     </a>
@@ -373,7 +380,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/detailed-technical-design/"
+    href="/docs/strategic-design/detailed-technical-design/"
     
   >Detailed Technical Design
     </a>
@@ -383,7 +390,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/"
+    href="/docs/governance/"
     
   >Governance
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -392,7 +399,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/sensitivity-label-taxonomy/"
+    href="/docs/governance/sensitivity-label-taxonomy/"
     
   >Sensitivity Label Taxonomy
     </a>
@@ -400,7 +407,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/dlp-policy-catalog/"
+    href="/docs/governance/dlp-policy-catalog/"
     
   >DLP Policy Catalog
     </a>
@@ -408,7 +415,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/dlp-policy-rules-matrix/"
+    href="/docs/governance/dlp-policy-rules-matrix/"
     
   >DLP Policy Rules Matrix
     </a>
@@ -418,7 +425,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/"
+    href="/docs/implementation/"
     
   >Implementation
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -427,7 +434,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/implementation-plan/"
+    href="/docs/implementation/implementation-plan/"
     
   >Implementation Plan
     </a>
@@ -435,7 +442,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/stakeholder-engagement/"
+    href="/docs/implementation/stakeholder-engagement/"
     
   >Stakeholder Engagement
     </a>
@@ -443,7 +450,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/risk-assessment/"
+    href="/docs/implementation/risk-assessment/"
     
   >Risk Assessment
     </a>
@@ -453,7 +460,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/"
+    href="/docs/enhancements/"
     
   >Enhancements
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -462,7 +469,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/user-training-awareness/"
+    href="/docs/enhancements/user-training-awareness/"
     
   >User Training and Awareness
     </a>
@@ -470,7 +477,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/implementation-playbooks/"
+    href="/docs/enhancements/implementation-playbooks/"
     
   >Implementation Playbooks
     </a>
@@ -478,7 +485,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/cost-benefit-analysis/"
+    href="/docs/enhancements/cost-benefit-analysis/"
     
   >Cost-Benefit Analysis
     </a>
@@ -486,7 +493,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/security-ecosystem-integration/"
+    href="/docs/enhancements/security-ecosystem-integration/"
     
   >Security Ecosystem Integration
     </a>
@@ -494,7 +501,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/industry-specific-use-cases/"
+    href="/docs/enhancements/industry-specific-use-cases/"
     
   >Industry-Specific Use Cases
     </a>
@@ -506,7 +513,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/about/"
+    href="/about/"
     
   >About
     </a></li>
@@ -517,14 +524,14 @@ Core Characteristics 1. Customizable Specific to organization and business needs
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/introduction/"
+    href="/docs/introduction/"
     
   >Introduction
     </a></li>
           <li class="open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/"
+    href="/docs/research/"
     
   >Research
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -532,7 +539,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/dlp-capabilities/"
+    href="/docs/research/dlp-capabilities/"
     
   >DLP Capabilities
     </a>
@@ -540,7 +547,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
-    href="/purview/docs/research/sensitivity-labels/"
+    href="/docs/research/sensitivity-labels/"
     
   >Sensitivity Labels
     </a>
@@ -548,7 +555,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/research/regulatory-requirements/"
+    href="/docs/research/regulatory-requirements/"
     
   >Regulatory Requirements
     </a>
@@ -558,7 +565,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/"
+    href="/docs/strategic-design/"
     
   >Strategic Design
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -566,7 +573,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/high-level-architecture/"
+    href="/docs/strategic-design/high-level-architecture/"
     
   >High-Level Architecture
     </a>
@@ -574,7 +581,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/strategic-design/detailed-technical-design/"
+    href="/docs/strategic-design/detailed-technical-design/"
     
   >Detailed Technical Design
     </a>
@@ -584,7 +591,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/"
+    href="/docs/governance/"
     
   >Governance
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -592,7 +599,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/sensitivity-label-taxonomy/"
+    href="/docs/governance/sensitivity-label-taxonomy/"
     
   >Sensitivity Label Taxonomy
     </a>
@@ -600,7 +607,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/dlp-policy-catalog/"
+    href="/docs/governance/dlp-policy-catalog/"
     
   >DLP Policy Catalog
     </a>
@@ -608,7 +615,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/governance/dlp-policy-rules-matrix/"
+    href="/docs/governance/dlp-policy-rules-matrix/"
     
   >DLP Policy Rules Matrix
     </a>
@@ -618,7 +625,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/"
+    href="/docs/implementation/"
     
   >Implementation
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -626,7 +633,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/implementation-plan/"
+    href="/docs/implementation/implementation-plan/"
     
   >Implementation Plan
     </a>
@@ -634,7 +641,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/stakeholder-engagement/"
+    href="/docs/implementation/stakeholder-engagement/"
     
   >Stakeholder Engagement
     </a>
@@ -642,7 +649,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/implementation/risk-assessment/"
+    href="/docs/implementation/risk-assessment/"
     
   >Risk Assessment
     </a>
@@ -652,7 +659,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/"
+    href="/docs/enhancements/"
     
   >Enhancements
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
@@ -660,7 +667,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/user-training-awareness/"
+    href="/docs/enhancements/user-training-awareness/"
     
   >User Training and Awareness
     </a>
@@ -668,7 +675,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/implementation-playbooks/"
+    href="/docs/enhancements/implementation-playbooks/"
     
   >Implementation Playbooks
     </a>
@@ -676,7 +683,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/cost-benefit-analysis/"
+    href="/docs/enhancements/cost-benefit-analysis/"
     
   >Cost-Benefit Analysis
     </a>
@@ -684,7 +691,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/security-ecosystem-integration/"
+    href="/docs/enhancements/security-ecosystem-integration/"
     
   >Security Ecosystem Integration
     </a>
@@ -692,7 +699,7 @@ Core Characteristics 1. Customizable Specific to organization and business needs
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/purview/docs/enhancements/industry-specific-use-cases/"
+    href="/docs/enhancements/industry-specific-use-cases/"
     
   >Industry-Specific Use Cases
     </a>
@@ -850,10 +857,10 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         
   <div class="hx-mt-1.5 hx-flex hx-items-center hx-gap-1 hx-overflow-hidden hx-text-sm hx-text-gray-500 dark:hx-text-gray-400 contrast-more:hx-text-current">
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
-          <a href="/purview/docs/">Documentation</a>
+          <a href="/docs/">Documentation</a>
         </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
-          <a href="/purview/docs/research/">Research</a>
+          <a href="/docs/research/">Research</a>
         </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Sensitivity Labels</div>
   </div>
 
@@ -1020,11 +1027,11 @@ Core Characteristics 1. Customizable Specific to organization and business needs
         </div>
         <div class="hx-mt-16"></div>
         <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
-        href="/purview/docs/research/dlp-capabilities/"
+        href="/docs/research/dlp-capabilities/"
         title="DLP Capabilities"
         class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
       ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>DLP Capabilities</a><a
-        href="/purview/docs/research/regulatory-requirements/"
+        href="/docs/research/regulatory-requirements/"
         title="Regulatory Requirements"
         class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
       >Regulatory Requirements<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
@@ -1043,9 +1050,9 @@ Core Characteristics 1. Customizable Specific to organization and business needs
   </a></div><div class="hx-mt-6 hx-text-xs">© 2025 Hextra Project.</div></div>
       </div></footer>
     
-    <script defer src="/purview/js/main.js" integrity=""></script>
-<script defer src="/purview/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
-    <script defer src="/purview/en.search.js" integrity=""></script>
+    <script defer src="/js/main.js" integrity=""></script>
+<script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
+    <script defer src="/en.search.js" integrity=""></script>
 
   </body>
 </html>

@@ -2,58 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/purview/docs/research/dlp-capabilities/</loc>
+    <loc>//localhost:1313/docs/research/dlp-capabilities/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/</loc>
+    <loc>//localhost:1313/docs/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/strategic-design/high-level-architecture/</loc>
+    <loc>//localhost:1313/docs/strategic-design/high-level-architecture/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/implementation/implementation-plan/</loc>
+    <loc>//localhost:1313/docs/implementation/implementation-plan/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/introduction/</loc>
+    <loc>//localhost:1313/docs/introduction/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/governance/sensitivity-label-taxonomy/</loc>
+    <loc>//localhost:1313/docs/governance/sensitivity-label-taxonomy/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/enhancements/user-training-awareness/</loc>
+    <loc>//localhost:1313/docs/enhancements/user-training-awareness/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/strategic-design/detailed-technical-design/</loc>
+    <loc>//localhost:1313/docs/strategic-design/detailed-technical-design/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/governance/dlp-policy-catalog/</loc>
+    <loc>//localhost:1313/docs/governance/dlp-policy-catalog/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/enhancements/implementation-playbooks/</loc>
+    <loc>//localhost:1313/docs/enhancements/implementation-playbooks/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/research/</loc>
+    <loc>//localhost:1313/docs/research/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/research/sensitivity-labels/</loc>
+    <loc>//localhost:1313/docs/research/sensitivity-labels/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/implementation/stakeholder-engagement/</loc>
+    <loc>//localhost:1313/docs/implementation/stakeholder-engagement/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/enhancements/cost-benefit-analysis/</loc>
+    <loc>//localhost:1313/docs/enhancements/cost-benefit-analysis/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/governance/dlp-policy-rules-matrix/</loc>
+    <loc>//localhost:1313/docs/governance/dlp-policy-rules-matrix/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/research/regulatory-requirements/</loc>
+    <loc>//localhost:1313/docs/research/regulatory-requirements/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/implementation/risk-assessment/</loc>
+    <loc>//localhost:1313/docs/implementation/risk-assessment/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/strategic-design/</loc>
+    <loc>//localhost:1313/docs/strategic-design/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/governance/</loc>
+    <loc>//localhost:1313/docs/governance/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/enhancements/security-ecosystem-integration/</loc>
+    <loc>//localhost:1313/docs/enhancements/security-ecosystem-integration/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/implementation/</loc>
+    <loc>//localhost:1313/docs/implementation/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/enhancements/industry-specific-use-cases/</loc>
+    <loc>//localhost:1313/docs/enhancements/industry-specific-use-cases/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/docs/enhancements/</loc>
+    <loc>//localhost:1313/docs/enhancements/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/about/</loc>
+    <loc>//localhost:1313/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/categories/</loc>
+    <loc>//localhost:1313/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/</loc>
+    <loc>//localhost:1313/</loc>
   </url><url>
-    <loc>http://localhost:1313/purview/tags/</loc>
+    <loc>//localhost:1313/tags/</loc>
   </url>
 </urlset>

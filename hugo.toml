@@ -1,4 +1,4 @@
-baseURL = "https://ayuzuf.github.io/purview/"
+baseURL = ""
 languageCode = "en-us"
 title = "Microsoft Purview DLP and Sensitivity Labels Implementation Framework"
 theme = "hextra"
@@ -39,10 +39,15 @@ theme = "hextra"
 # Top navigation menu items
 [menu]
   [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
     identifier = "Docs"
     name = "Docs"
     url = "/docs/"
-    weight = 1
+    weight = 2
 
 # Configure page navigation
 [params.page]
@@ -51,7 +56,7 @@ theme = "hextra"
   # Show table of contents
   tocSide = "right"
   # Show breadcrumb
-  breadcrumb = trueß
+  breadcrumb = true
   # Show last updated time
   lastUpdated = true
 
