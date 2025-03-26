@@ -7,22 +7,22 @@ theme = "hextra"
 [params]
   # Enable dark mode
   darkMode = true
-  
+
   # Theme color
   themeColor = "blue"
-  
+
   # Enable search
   enableSearch = true
-  
+
   # Enable table of contents
   enableTOC = true
-  
+
   # Repository link
-  gitRepo = "https://github.com/yourusername/microsoft-purview-framework"
-  
+  gitRepo = "https://github.com/ayuzuf/purview"
+
   # Social links
   [params.social]
-    github = "https://github.com/yourusername/microsoft-purview-framework"
+    github = "https://github.com/ayuzuf/purview"
     linkedin = "https://linkedin.com/company/yourcompany"
 
   # Footer configuration
@@ -31,12 +31,28 @@ theme = "hextra"
     displayPoweredBy = true
     copyright = "Microsoft Purview DLP and Sensitivity Labels Implementation Framework"
 
+# Navbar configuration
 [params.navbar]
   displayTitle = true
   displayLogo = false
 
-[markup.goldmark.renderer]
-  unsafe = true
+# Top navigation menu items
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 2
+  [[menu.main]]
+    identifier = "Docs"
+    name = "Docs"
+    url = "/docs/"
+    weight = 3
 
 # Configure page navigation
 [params.page]
@@ -48,3 +64,6 @@ theme = "hextra"
   breadcrumb = true
   # Show last updated time
   lastUpdated = true
+
+[markup.goldmark.renderer]
+  unsafe = true
