@@ -41,7 +41,7 @@ theme = "hextra"
   [[menu.main]]
     identifier = "Docs"
     name = "Docs"
-    url = "purview/docs/"
+    url = "/docs/"
     weight = 1
 
 # Configure page navigation
@@ -51,7 +51,7 @@ theme = "hextra"
   # Show table of contents
   tocSide = "right"
   # Show breadcrumb
-  breadcrumb = true
+  breadcrumb = trueß
   # Show last updated time
   lastUpdated = true
 
