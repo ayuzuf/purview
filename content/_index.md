@@ -5,7 +5,7 @@ layout: single
 
 # Microsoft Purview DLP and Sensitivity Labels Implementation Framework
 
-**For FTSE 100 Financial Services Organizations**
+**For UK Financial Services Organizations**
 
 A comprehensive framework providing an enterprise-grade implementation approach for Microsoft Purview Data Loss Prevention (DLP) and Sensitivity Labels within FTSE 100 financial services organizations.
 

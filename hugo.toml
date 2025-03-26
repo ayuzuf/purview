@@ -39,20 +39,10 @@ theme = "hextra"
 # Top navigation menu items
 [menu]
   [[menu.main]]
-    identifier = "home"
-    name = "Home"
-    url = "/"
-    weight = 1
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-    weight = 2
-  [[menu.main]]
     identifier = "Docs"
     name = "Docs"
-    url = "/docs/"
-    weight = 3
+    url = "purview/docs/"
+    weight = 1
 
 # Configure page navigation
 [params.page]
