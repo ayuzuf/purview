@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microsoft Purview DLP and Sensitivity Labels Implementation Framework – Research</title>
-    <link>http://localhost:1313/docs/research/</link>
+    <link>http://localhost:1313/purview/docs/research/</link>
     <description>Recent content in Research on Microsoft Purview DLP and Sensitivity Labels Implementation Framework</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	  <atom:link href="http://localhost:1313/docs/research/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="http://localhost:1313/purview/docs/research/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>DLP Capabilities</title>
-      <link>http://localhost:1313/docs/research/dlp-capabilities/</link>
+      <link>http://localhost:1313/purview/docs/research/dlp-capabilities/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/docs/research/dlp-capabilities/</guid>
+      <guid>http://localhost:1313/purview/docs/research/dlp-capabilities/</guid>
       <description>
         
         
@@ -133,10 +133,10 @@
     
     <item>
       <title>Sensitivity Labels</title>
-      <link>http://localhost:1313/docs/research/sensitivity-labels/</link>
+      <link>http://localhost:1313/purview/docs/research/sensitivity-labels/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/docs/research/sensitivity-labels/</guid>
+      <guid>http://localhost:1313/purview/docs/research/sensitivity-labels/</guid>
       <description>
         
         
@@ -303,10 +303,10 @@
     
     <item>
       <title>Regulatory Requirements</title>
-      <link>http://localhost:1313/docs/research/regulatory-requirements/</link>
+      <link>http://localhost:1313/purview/docs/research/regulatory-requirements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/docs/research/regulatory-requirements/</guid>
+      <guid>http://localhost:1313/purview/docs/research/regulatory-requirements/</guid>
       <description>
         
         

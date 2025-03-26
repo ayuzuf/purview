@@ -1,4 +1,4 @@
-baseURL = "https://example.org/"
+baseURL = "https://ayuzuf.github.io/purview/"
 languageCode = "en-us"
 title = "Microsoft Purview DLP and Sensitivity Labels Implementation Framework"
 theme = "hextra"
